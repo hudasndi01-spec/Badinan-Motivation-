@@ -422,3 +422,83 @@
 </body>
 </html>
 
+<div class="card" style="margin-top: 20px; text-align: right;">
+    <h3 style="color: var(--accent-color); font-size: 16px; margin-bottom: 10px;">📱 چەوا سایتێ بکەینە Home Screen؟</h3>
+    <p style="font-size: 13px; color: var(--text-main); line-height: 1.6;">
+        <b>بۆ ئایفۆن (iPhone - Safari):</b><br>
+        1. دوگمەیا (Share) ل خوارێ یا برۆسەری کلیک بکە.<br>
+        2. بگرە و بڕۆ خوارێ، کلیک ل سەر <b>"Add to Home Screen"</b> بکە.<br><br>
+        <b>بۆ ئەندرۆید (Android - Chrome):</b><br>
+        1. خاڵێن ل سەرێ لایێ ڕاست (3 خاڵ) کلیک بکە.<br>
+        2. هەلبژێرە <b>"Add to Home screen"</b> یان <b>"Install app"</b>.
+    </p>
+</div>
+<div class="card" style="margin-top: 20px; text-align: right;">
+    <h3 style="color: var(--accent-color); font-size: 16px; margin-bottom: 10px;">💬 جهێ نامێن خەلکی (Wall of Notes)</h3>
+    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">ناما خۆ لێرە بهێلە، هەست و هزرێن خۆ دیزاین بکە!</p>
+    
+    <!-- فورم بۆ نڤیسینا نامەیێ -->
+    <textarea id="user-note-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 80px; padding: 10px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-main); font-size: 14px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 10px;"></textarea>
+    
+    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <select id="note-color" style="flex: 1; padding: 8px; border-radius: 8px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border);">
+            <option value="#64ffda">ڕەنگێ تیشک (Green)</option>
+            <option value="#fde047">ڕەنگێ زێری (Gold)</option>
+            <option value="#ff6b6b">ڕەنگێ سۆر (Coral)</option>
+            <option value="#a29bfe">ڕەنگێ مۆرتک (Purple)</option>
+        </select>
+        <button onclick="saveUserNote()" class="noti-btn" style="flex: 1; margin: 0; padding: 8px;">ناما خۆ بینڤە</button>
+    </div>
+
+    <!-- دیمەنێ نامێن خەلکی -->
+    <div id="notes-container" style="max-height: 150px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; margin-top: 15px;">
+        <!-- نامە لێرە دێ هێنە نیشاندان -->
+    </div>
+</div>
+
+<script>
+    // بارکرنا نامەیان دەمێ سایت دەکەڤیت
+    window.addEventListener('DOMContentLoaded', loadNotes);
+
+    function saveUserNote() {
+        const text = document.getElementById('user-note-text').value.trim();
+        const color = document.getElementById('note-color').value;
+        
+        if (!text) {
+            alert("هیڤیە نامەیەکێ بنڤیسە!");
+            return;
+        }
+
+        const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
+        notes.unshift({ text, color, date: new Date().toLocaleDateString() });
+        
+        localStorage.setItem('badinan_notes', JSON.stringify(notes));
+        document.getElementById('user-note-text').value = '';
+        loadNotes();
+    }
+
+    function loadNotes() {
+        const container = document.getElementById('notes-container');
+        container.innerHTML = '';
+        const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
+
+        if (notes.length === 0) {
+            container.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">هێشتا چ نامە نینن، یەکەم کەس بی!</p>';
+            return;
+        }
+
+        notes.forEach(note => {
+            const div = document.createElement('div');
+            div.style.background = 'rgba(0, 0, 0, 0.15)';
+            div.style.borderRight = `4px solid ${note.color}`;
+            div.style.padding = '10px';
+            div.style.borderRadius = '8px';
+            div.style.fontSize = '13px';
+            div.style.color = 'var(--text-main)';
+            div.style.textAlign = 'right';
+            div.innerHTML = `<strong>ناما هێلای:</strong> ${note.text} <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">${note.date}</div>`;
+            container.appendChild(div);
+        });
+    }
+</script>
+
