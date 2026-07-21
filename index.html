@@ -1,615 +1,249 @@
-
 <!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Badinan Motivation</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/3W68Zz3/moon.png">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #0a192f 0%, #0f3460 100%);
+            --bg-gradient: linear-gradient(135deg, #0b1329 0%, #1c2a4f 100%);
             --card-bg: rgba(255, 255, 255, 0.05);
             --card-border: rgba(255, 255, 255, 0.1);
-            --text-main: #f8fafc;
-            --text-muted: #8892b0;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
             --accent-color: #64ffda;
-            --accent-glow: rgba(100, 255, 218, 0.2);
-            --premium-bg: rgba(254, 243, 199, 0.05);
-            --premium-border: rgba(251, 191, 36, 0.3);
-            --premium-text: #fde047;
         }
 
-        [data-theme="light"] {
-            --bg-gradient: linear-gradient(135deg, #e6f0fa 0%, #bcd4e6 100%);
-            --card-bg: #ffffff;
-            --card-border: #d1d5db;
-            --text-main: #0a192f;
-            --text-muted: #4b5563;
-            --accent-color: #0f3460;
-            --accent-glow: rgba(15, 52, 96, 0.1);
-            --premium-bg: #fef3c7;
-            --premium-border: #fbbf24;
-            --premium-text: #b45309;
-        }
-
-        body { 
-            font-family: 'Segoe UI', 'Tahoma', sans-serif; 
-            background: var(--bg-gradient); 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
+        body {
             margin: 0;
             padding: 20px;
-            box-sizing: border-box;
-            transition: background 0.5s ease;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .card { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 35px 25px; 
-            border-radius: 32px; 
-            border: 1px solid var(--card-border);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
-            text-align: center; 
-            max-width: 440px; 
-            width: 100%; 
-            box-sizing: border-box;
-            transition: all 0.3s ease;
+        .container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-bottom: 40px;
         }
 
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .logo-area h1 { 
-            color: var(--text-main); 
-            font-size: 18px; 
-            font-weight: 700;
-            margin: 0; 
-            letter-spacing: 0.5px;
-        }
-
-        .circle-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-        .circle-btn:hover {
-            border-color: var(--accent-color);
-            background: var(--accent-glow);
-        }
-
-        .clock-container {
-            margin-bottom: 25px;
-        }
-
-        #clock { 
-            font-size: 36px; 
-            font-weight: 800; 
-            color: var(--accent-color); 
-            margin: 0;
-            font-variant-numeric: tabular-nums;
-        }
-
-        #day-period {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 4px;
-            font-weight: 600;
-        }
-
-        .quote-box {
-            min-height: 150px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-        }
-
-        p#main-text { 
-            color: var(--text-main); 
-            font-size: 19px; 
-            line-height: 1.8; 
-            margin: 0;
-            font-weight: 600;
-        }
-
-        .main-btn { 
-            background-color: var(--accent-color); 
-            color: #0a192f; 
-            border: none; 
-            padding: 16px; 
-            border-radius: 16px; 
-            cursor: pointer; 
-            width: 100%; 
-            font-size: 16px;
-            font-weight: 700;
-            box-shadow: 0 4px 14px var(--accent-glow);
-            transition: all 0.2s;
-        }
-        [data-theme="light"] .main-btn {
-            color: white;
-        }
-        .main-btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
-
-        .notification-setting {
-            margin-top: 20px;
-            background: rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            border-radius: 14px;
-            border: 1px solid var(--card-border);
-            text-align: right;
-        }
-
-        .notification-setting label {
-            display: block;
-            font-size: 13px;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .notification-setting input[type="time"] {
             width: 100%;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
-            color: var(--text-main);
-            font-size: 15px;
-            outline: none;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area h1 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .time-display {
             text-align: center;
-            margin-bottom: 10px;
-            box-sizing: border-box;
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 10px 0 0 0;
+        }
+
+        .date-status {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .main-quote {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 10px 0;
         }
 
         .noti-btn {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
+            background: var(--accent-color);
+            color: #0b1329;
             border: none;
-            background: #0f3460;
-            color: white;
-            font-weight: 600;
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: bold;
+            font-size: 15px;
             cursor: pointer;
-            transition: all 0.2s;
-        }
-        .noti-btn:hover {
-            opacity: 0.9;
+            width: 100%;
+            transition: 0.2s;
         }
 
-        .premium { 
-            background: var(--premium-bg); 
-            border: 1px solid var(--premium-border); 
-            padding: 20px; 
-            border-radius: 24px; 
-            margin-top: 25px; 
+        .noti-btn:active {
+            transform: scale(0.98);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
             text-align: right;
-            cursor: pointer;
         }
 
-        .premium strong {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
-            color: var(--premium-text);
-            margin-bottom: 12px;
-        }
-
-        .premium ul {
-            margin: 0;
-            padding-right: 20px;
-            font-size: 13px;
-            color: var(--text-main);
-            line-height: 1.9;
-        }
-        .premium ul li {
-            margin-bottom: 6px;
-            list-style-type: square;
-        }
-
-        .footer-credits { 
-            margin-top: 30px; 
+        .footer-credit {
+            text-align: center;
             font-size: 11px;
             color: var(--text-muted);
-            line-height: 1.5;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
+    <div class="container">
+        <!-- سەرێ سایتێ -->
         <div class="top-bar">
             <div class="logo-area">
+                <img src="https://i.ibb.co/3W68Zz3/moon.png" style="width: 26px; height: 26px; border-radius: 50%;" alt="Logo">
                 <h1>Badinan Motivation</h1>
             </div>
-            <button class="circle-btn" onclick="toggleTheme()">🌓</button>
         </div>
 
-        <div class="clock-container">
-            <div id="clock">00:00:00</div>
-            <div id="day-period">بارکردن...</div>
+        <!-- دەمژمێر و دۆخ -->
+        <div>
+            <div id="live-time" class="time-display">14:10:15</div>
+            <div class="date-status">☀️ دەمێ نیڤرۆییه</div>
         </div>
 
-        <div class="quote-box">
-            <p id="main-text">ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!</p>
+        <div class="main-quote">ئەڤڕۆ ڕۆژا تە یە، پینگافی باڤێژه!</div>
+
+        <button class="noti-btn" onclick="alert('پەیڤێن هاندەر: بەردەوام بە، تو دشێی سەرکەڤی!')">پەیڤێن هاندەر</button>
+
+        <!-- بەشێ ئاگادارییان -->
+        <div class="card">
+            <h3 style="font-size: 14px; margin: 0 0 10px 0; color: #fde047;">🔔 دیارکرنا دەمژمێرا ئاگاداریان:</h3>
+            <input type="time" style="width: 100%; padding: 10px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(0,0,0,0.2); color: white; box-sizing: border-box; margin-bottom: 10px; outline: none;">
+            <button class="noti-btn" style="padding: 10px; font-size: 13px;" onclick="alert('ئاگاداری هاتە تۆمارکرن!')">بۆ ئاگادارکرنێ دەمی تۆماربکه</button>
         </div>
 
-        <!-- ١- گۆتنەکا نوو ❌ هاتە گۆهڕین بۆ پەیڤێن هاندەر -->
-        <button class="main-btn" onclick="getNewQuote()">پەیڤێن هاندەر</button>
+        <!-- بەشێ چەواهی Home Screen -->
+        <div class="card">
+            <h3 style="color: var(--accent-color); font-size: 15px; margin-bottom: 8px;">📱 چەوا سایتێ بکەینە Home Screen؟</h3>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin: 0;">
+                <b>بۆ ئایفۆن (iPhone):</b> دوگمەیا (Share) ل خوارێ کلیک بکە، پاشان <b>"Add to Home Screen"</b> هەلبژێرە.<br>
+                <b>بۆ ئەندرۆید (Android):</b> 3 خالێن سەرێ ڕاست کلیک بکە، پاشان <b>"Add to Home screen"</b> هەلبژێرە.
+            </p>
+        </div>
 
-        <div class="notification-setting">
-            <!-- ٣- دیارکرنا دەمژمێرا ئاگەهداریان -->
-            <label for="notif-time">🔔 دیارکرنا دەمژمێرا ئاگەهداریان:</label>
-            <input type="time" id="notif-time">
+        <!-- بەشێ نامێن خەلکی (Wall of Notes) -->
+        <div class="card">
+            <h3 style="color: var(--accent-color); font-size: 15px; margin-bottom: 6px;">✉️ پشکا نامێن هێلای (Wall of Notes)</h3>
+            <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">ناما خۆ لێرە بهێلە و دیزاین بکە!</p>
             
-            <!-- ٢- ئاگەهداری (allow) -->
-            <button class="noti-btn" style="background:#2ecc71; margin-bottom:8px;" onclick="requestPermissionFirst()">ئاگەهداری (allow)</button>
+            <textarea id="user-note-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 75px; padding: 10px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(0,0,0,0.2); color: white; font-size: 13px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 10px;"></textarea>
             
-            <!-- ٤- بۆ ئاگەهدارکرنێ دەمی توماربکە -->
-            <button class="noti-btn" onclick="saveNotificationTime()">بۆ ئاگەهدارکرنێ دەمی توماربکە</button>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                <select id="note-color" style="flex: 1; padding: 8px; border-radius: 10px; background: rgba(0,0,0,0.2); color: white; border: 1px solid var(--card-border); font-size: 12px; outline: none;">
+                    <option value="#64ffda">🟢 ڕەنگێ تیشک</option>
+                    <option value="#fde047">🟡 ڕەنگێ زێری</option>
+                    <option value="#ff6b6b">🔴 ڕەنگێ سۆر</option>
+                    <option value="#a29bfe">🟣 ڕەنگێ مۆرتک</option>
+                </select>
+                <button onclick="saveUserNote()" class="noti-btn" style="flex: 1; margin: 0; padding: 8px; font-size: 12px;">✉️ بنێرە</button>
+            </div>
+
+            <div id="notes-container" style="max-height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;">
+                <!-- نامە لێرە دێ هێنە نیشاندان -->
+            </div>
         </div>
 
-        <!-- ٥- دەمێ کەسەک کلیک دکەت بلا لسەر بهێت نڤیسین (ئەڤ بەشە د جێبەجێکرنێ دا یە) -->
-        <div class="premium" onclick="alert('ئەڤ بەشە د جێبەجێکرنێ دا یە')">
-            <strong>
-                <span>✨ ئەڤ بەشە بۆ ئەندامێن پرێمیۆمە</span>
-                <span>🔒</span>
-            </strong>
-            <ul>
-                <li>بابەتێن پەیوەندیا ژەهراوی</li>
-                <li>ڕاوەستان هەمبەر فشارێن جڤاکی</li>
-                <li>خراب بکارئینانا سۆشیال میدیایێ</li>
+        <!-- بەشێ پرێمیۆم -->
+        <div class="card" style="border: 1px dashed rgba(253, 224, 71, 0.4);">
+            <h3 style="color: #fde047; font-size: 14px; margin: 0 0 8px 0;">🔒 ✨ ئەڤ بەشە بۆ ئەندامێن پرێمیۆمە</h3>
+            <ul style="margin: 0; padding-right: 18px; font-size: 12px; color: var(--text-muted); line-height: 1.6;">
+                <li>بابەتین پەیوەندیا ژەهراوی</li>
+                <li>راوەستان هەمبەر فشارین جڤاکی</li>
+                <li>خراپ بکارتینانا سۆشیال میدیایی</li>
             </ul>
         </div>
 
-        <div class="footer-credits">
+        <div class="footer-credit">
             Created by: <b>Huda Shahin sindi</b><br>
-            هەمی ماف پاراستینە © 2026
+            هەمی ماف پاراستینه © 2026
         </div>
     </div>
 
     <script>
-        function updateClock() {
+        // دانانا دەمژمێرا ڕاستەقینە
+        setInterval(() => {
             const now = new Date();
-            const hours = now.getHours();
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = now.toTimeString().split(' ')[0];
+            document.getElementById('live-time').innerText = timeString;
+        }, 1000);
+
+        window.addEventListener('DOMContentLoaded', loadNotes);
+
+        function saveUserNote() {
+            const text = document.getElementById('user-note-text').value.trim();
+            const color = document.getElementById('note-color').value;
             
-            document.getElementById('clock').textContent = `${String(hours).padStart(2, '0')}:${minutes}:${seconds}`;
-            
-            let period = "";
-            if (hours >= 5 && hours < 12) {
-                period = "🌅 دەمێ سپێدەهیێ یە";
-            } else if (hours >= 12 && hours < 16) {
-                period = "☀️ دەمێ نیڤڕۆیە";
-            } else if (hours >= 16 && hours < 19) {
-                period = "🌇 دەمێ ئێڤاری یە";
-            } else {
-                period = "🌙 دەمێ شەڤێ یە";
-            }
-            document.getElementById('day-period').textContent = period;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        const quotes = [
-            "ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!",
-            "تو گەلەک ژ هندێ ب هێزتری تو دەستا ب داهێلی.",
-            "بخۆ بژی، نە بۆ ڕازیکرنا خەڵکی.",
-            "هەر نوکە دەست پێ بکە، چ جاران درەنگ نینە.",
-            "تو یا ب هێزی، باوەریێ ب شیانێن خۆ بینە.",
-            "ئەڤرۆ دەرفەتەکا نووی یە بۆ هندێ تو بگەهیە حەزێن خۆ.",
-            "خەونێن تە مەزنن، هەولدانێن خۆ ژی مەزنتر لێ بکە.",
-            "تو داهێنەرا ژیانا خۆیی، جوان ڕەنگ بکە.",
-            "هەر تشتەکێ ئەڤرۆ دکەی، سوبە دێ پێ کەیفخۆش بی.",
-            "تو ب تنێ دشێی ژیانا خۆ بگۆهۆڕی، دەست پێ بکە.",
-            "ئارام بە، خودێ دێ دەرگەهێن خێڕێ بۆ تە ڤەکەت.",
-            "پێنگاڤەکا بچووک باشترە ژ ڕاوەستانێ.",
-            "تو ژ هەژی باشترین تشتی د ژیانێ دا.",
-            "دەست ژ هیڤیێن خۆ بەرنەدە، تو کەسەک خودان شیانی.",
-            "ئەڤرۆ کار بکە، دا کو سوبە شانازیێ ب خۆ بەی.",
-            "ترسێ ژ دلێ خۆ دەر بێخە و بەرەف پێش هەرە.",
-            "ماندیبوونا ئەڤرۆ، دێ بیتە کەیفخۆشیا سوبەهی.",
-            "کەسەک نینە شوینا تە شەڕی بۆ خەونێن تە بکەت.",
-            "بڕیارێ بدە و چو جاران سستیێ تێدا نەکە.",
-            "هەر دەمەکێ تو تێدا دژی، دەمەکێ زێڕینە.",
-            "ژ دەستپێکرنا نوو نەترسە، ئەڤە دەرفەتا تە یە.",
-            "ئەڤرۆ یا پڕە ژ وزە و هێزێ، بکاربینە!",
-            "تو یا بڕیاردەری، چو هێز نەشێن تە ڕاگرن.",
-            "هەول بدە ئەڤرۆ باشتر بی ژ دوهی.",
-            "سەبر کلیلا هەر دەرگەهەکەکێ داخستی یە.",
-            "ب دڵسۆزی کار بکە، ئەنجام دێ تە مەندەهوش کەن.",
-            "تو یا تایبەتی، چو کەس وەک تە نین.",
-            "ژیان یا کورتە، ب کەیف و سەرکەفتن دەرباز بکە.",
-            "سەرکەفتن ناهێت، پێدڤییە تو بۆ بچی.",
-            "خودێ دگەل تە یە، چ خەمان نەخۆ.",
-            "تو خودان ئیرادەیەکا بهێزی.",
-            "بێدەنگ کار بکە، بهێڵە دەنگێ سەرکەفتنا تە بڵند ببیت.",
-            "هەر ڕۆژەکا نوو، شانسەک نوو یە بۆ سەرکەفتنێ.",
-            "پاشەڕۆژ یا وان کەسانە یێن باوەری ب خەونێن خۆ هەی.",
-            "ئارمانجێن مەزن قوربانیێن مەزن دڤێن.",
-            "تو ژ وێ ب هێزتری یا دیار دکەی.",
-            "ئارمانج بێ پلان، تنێ خەونەکە.",
-            "بچووکترین پێنگاڤ ژی باشترە ژ جهەکێ دیار.",
-            "کەسێ نەکە خودانێ بریارێن خۆ؛ ژیانا تە یا تە یە و کەس ماف نینە تێک بدەت.",
-            "تو نە مەجبووری کەسەکێ ژ خۆ ڕازیکەی، گرنگ ئەوە تو ژ خۆ ڕازی بی و ئەڤە بەسە.",
-            "هندەک جار دوورکەفتنا ژ خەلکی، مەزنترین دیارییە تو ددەیه‌ گیانێ خۆ.",
-            "تو گەلەک ژ هندێ بهاتری کو دەمێ خۆ بۆ کەسێن بێ مفا تەرخان بکەی.",
-            "تشتێ هەر گرنگ ل ڤێ جیهانێ، ئارامیا مێشکێ تە یە؛ هەر تشتێ وی تێک بدەت، ژێ دوور بکەڤە.",
-            "کەسێن نەرێنی تنێ دڤێن هێزا تە ببڕن؛ نەهێلە ئارامیا ڕۆژا تە تێک بدەن.",
-            "هەر دەمێ تو هەول ددەی هەمی کەسی ڕازی بکەی، وی دەمی تو یێ خۆ ژ دەست ددەی.",
-            "دوورکەفتنا ژ کەسێن نەرێنی، نیڤا سەرکەفتن و ئارامیا تە یە.",
-            "خەونێن تە ژ ڕایێن خەلکی گرانبەها ترن؛ لدووڤ دەنگێ دلێ خوە هەرە نەک بۆچونا خەلکی.",
-            "گۆتنا \"نەخێر\" بۆ هەر ژینگەهەکا کو ڕەخنەیێن نەدرۆست ل تە بگرن.",
-            "دانانا سنورێن توند دگەل دەوروبەرێن نەرێنی بۆ هندێ ڕۆژا تە ب کەیف دەرباز ببێت."
-        ];
-
-        function getNewQuote() {
-            const textElement = document.getElementById('main-text');
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            textElement.textContent = quotes[randomIndex];
-        }
-
-        /* ٢- پەیاما سپی هاتە گۆهڕین بۆ هیڤیە سایتی بکە د Home Screen دا بو ئاگەهدارکرنێ */
-        function requestPermissionFirst() {
-            if ("Notification" in window) {
-                Notification.requestPermission().then(permission => {
-                    alert("هیڤیە سایتی بکە د Home Screen دا بو ئاگەهدارکرنێ");
-                });
-            } else {
-                alert("هیڤیە سایتی بکە د Home Screen دا بو ئاگەهدارکرنێ");
-            }
-        }
-
-        let alarmInterval = null;
-
-        function saveNotificationTime() {
-            const timeInput = document.getElementById("notif-time").value;
-            if (!timeInput) {
-                alert("هیڤیە دەمەکێ هەلبژێرە!");
+            if (!text) {
+                alert("هیڤیە نامەیەکێ بنڤیسە!");
                 return;
             }
 
-            alert("هیڤیە سایتی بکە د Home Screen دا بو ئاگەهدارکرنێ");
-
-            if (alarmInterval) clearInterval(alarmInterval);
-
-            alarmInterval = setInterval(() => {
-                const now = new Date();
-                const hours = String(now.getHours()).padStart(2, '0');
-                const minutes = String(now.getMinutes()).padStart(2, '0');
-                const currentTime = `${hours}:${minutes}`;
-
-                if (currentTime === timeInput) {
-                    const randomIndex = Math.floor(Math.random() * quotes.length);
-                    new Notification("Badinan Motivation ✨", {
-                        body: quotes[randomIndex]
-                    });
-                }
-            }, 60000);
+            const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
+            notes.unshift({ text, color, date: new Date().toLocaleDateString() });
+            
+            localStorage.setItem('badinan_notes', JSON.stringify(notes));
+            document.getElementById('user-note-text').value = '';
+            loadNotes();
         }
 
-        function toggleTheme() {
-            if (document.body.getAttribute('data-theme') === 'light') {
-                document.body.removeAttribute('data-theme');
-            } else {
-                document.body.setAttribute('data-theme', 'light');
+        function loadNotes() {
+            const container = document.getElementById('notes-container');
+            container.innerHTML = '';
+            const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
+
+            if (notes.length === 0) {
+                container.innerHTML = '<p style="font-size: 11px; color: var(--text-muted); text-align: center; margin: 5px 0;">هێشتا چ نامە نینن، یەکەم کەس بی!</p>';
+                return;
             }
+
+            notes.forEach(note => {
+                const div = document.createElement('div');
+                div.style.background = 'rgba(255, 255, 255, 0.03)';
+                div.style.border = '1px solid rgba(255, 255, 255, 0.06)';
+                div.style.borderRight = `4px solid ${note.color}`;
+                div.style.padding = '10px 12px';
+                div.style.borderRadius = '12px';
+                div.style.fontSize = '13px';
+                div.style.color = 'var(--text-main)';
+                div.style.textAlign = 'right';
+                
+                div.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                        <span style="font-size: 10px; color: ${note.color}; font-weight: bold;">✉️ ناما هێلای</span>
+                        <span style="font-size: 9px; color: var(--text-muted);">${note.date}</span>
+                    </div>
+                    <p style="margin: 0; line-height: 1.4; word-break: break-word;">${note.text}</p>
+                `;
+                container.appendChild(div);
+            });
         }
     </script>
 </body>
 </html>
-
-<div class="card" style="margin-top: 20px; text-align: right;">
-    <h3 style="color: var(--accent-color); font-size: 16px; margin-bottom: 10px;">📱 چەوا سایتێ بکەینە Home Screen؟</h3>
-    <p style="font-size: 13px; color: var(--text-main); line-height: 1.6;">
-        <b>بۆ ئایفۆن (iPhone - Safari):</b><br>
-        1. دوگمەیا (Share) ل خوارێ یا برۆسەری کلیک بکە.<br>
-        2. بگرە و بڕۆ خوارێ، کلیک ل سەر <b>"Add to Home Screen"</b> بکە.<br><br>
-        <b>بۆ ئەندرۆید (Android - Chrome):</b><br>
-        1. خاڵێن ل سەرێ لایێ ڕاست (3 خاڵ) کلیک بکە.<br>
-        2. هەلبژێرە <b>"Add to Home screen"</b> یان <b>"Install app"</b>.
-    </p>
-</div>
-<div class="card" style="margin-top: 20px; text-align: right;">
-    <h3 style="color: var(--accent-color); font-size: 16px; margin-bottom: 10px;">💬 جهێ نامێن خەلکی (Wall of Notes)</h3>
-    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">ناما خۆ لێرە بهێلە، هەست و هزرێن خۆ دیزاین بکە!</p>
-    
-    <!-- فورم بۆ نڤیسینا نامەیێ -->
-    <textarea id="user-note-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 80px; padding: 10px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-main); font-size: 14px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 10px;"></textarea>
-    
-    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-        <select id="note-color" style="flex: 1; padding: 8px; border-radius: 8px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border);">
-            <option value="#64ffda">ڕەنگێ تیشک (Green)</option>
-            <option value="#fde047">ڕەنگێ زێری (Gold)</option>
-            <option value="#ff6b6b">ڕەنگێ سۆر (Coral)</option>
-            <option value="#a29bfe">ڕەنگێ مۆرتک (Purple)</option>
-        </select>
-
-</script>
-<div class="card" style="margin-top: 25px; text-align: right; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border); border-radius: 24px; padding: 25px;">
-    <h3 style="color: var(--accent-color); font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-        <span>✉️</span> پشکا نامێن هێلای (Wall of Notes)
-    </h3>
-    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.5;">ناما خۆ لێرە بهێلە، دیزاین بکە و بۆ کەسێن دی بهێلە!</p>
-    
-    <textarea id="user-note-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 85px; padding: 12px; border-radius: 14px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-main); font-size: 14px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 12px;"></textarea>
-    
-    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-        <select id="note-color" style="flex: 1; padding: 10px; border-radius: 12px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); font-size: 13px; outline: none;">
-            <option value="#64ffda">🟢 ڕەنگێ تیشک (Green)</option>
-            <option value="#fde047">🟡 ڕەنگێ زێری (Gold)</option>
-            <option value="#ff6b6b">🔴 ڕەنگێ سۆر (Coral)</option>
-            <option value="#a29bfe">🟣 ڕەنگێ مۆرتک (Purple)</option>
-        </select>
-        <button onclick="saveUserNote()" class="noti-btn" style="flex: 1; margin: 0; padding: 10px; border-radius: 12px;">✉️ ناما خۆ بنێره</button>
-    </div>
-
-    <div id="notes-container" style="max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; margin-top: 15px; padding-left: 5px;">
-        </div>
-</div>
-
-<script>
-    window.addEventListener('DOMContentLoaded', loadNotes);
-
-    function saveUserNote() {
-        const text = document.getElementById('user-note-text').value.trim();
-        const color = document.getElementById('note-color').value;
-        
-        if (!text) {
-            alert("هیڤیە نامەیەکێ بنڤیسە!");
-            return;
-        }
-
-        const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
-        notes.unshift({ text, color, date: new Date().toLocaleDateString() });
-        
-        localStorage.setItem('badinan_notes', JSON.stringify(notes));
-        document.getElementById('user-note-text').value = '';
-        loadNotes();
-    }
-
-    function loadNotes() {
-        const container = document.getElementById('notes-container');
-        container.innerHTML = '';
-        const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
-
-        if (notes.length === 0) {
-            container.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center; padding: 15px;">هێشتا چ نامە نینن، یەکەم کەس بی نامەکێ بهێلی!</p>';
-            return;
-        }
-
-        notes.forEach(note => {
-            const div = document.createElement('div');
-            // دیزاینا زەرفێ نامەیێ (Envelope Style)
-            div.style.background = 'rgba(255, 255, 255, 0.04)';
-            div.style.border = '1px solid rgba(255, 255, 255, 0.08)';
-            div.style.borderRight = `5px solid ${note.color}`;
-            div.style.padding = '14px 16px';
-            div.style.borderRadius = '16px';
-            div.style.fontSize = '14px';
-            div.style.color = 'var(--text-main)';
-            div.style.textAlign = 'right';
-            div.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-            div.style.position = 'relative';
-            
-            div.innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-                    <span style="font-size: 11px; color: ${note.color}; font-weight: 700; background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 6px;">✉️ ناما هێلای</span>
-                    <span style="font-size: 10px; color: var(--text-muted);">${note.date}</span>
-                </div>
-                <p style="margin: 0; line-height: 1.6; word-break: break-word; font-weight: 500;">${note.text}</p>
-            `;
-            container.appendChild(div);
-        });
-    }
-</script>
-<div class="card" style="margin-top: 25px; text-align: right; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border); border-radius: 24px; padding: 25px;">
-    <h3 style="color: var(--accent-color); font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-        <span>✉️</span> پشکا نامێن هێلای (Wall of Notes)
-    </h3>
-    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.5;">ناما خۆ لێرە بهێلە، دیزاین بکە و بۆ کەسێن دی بهێلە!</p>
-    
-    <textarea id="user-note-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 85px; padding: 12px; border-radius: 14px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-main); font-size: 14px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 12px;"></textarea>
-    
-    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-        <select id="note-color" style="flex: 1; padding: 10px; border-radius: 12px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); font-size: 13px; outline: none;">
-            <option value="#64ffda">🟢 ڕەنگێ تیشک (Green)</option>
-            <option value="#fde047">🟡 ڕەنگێ زێری (Gold)</option>
-            <option value="#ff6b6b">🔴 ڕەنگێ سۆر (Coral)</option>
-            <option value="#a29bfe">🟣 ڕەنگێ مۆرتک (Purple)</option>
-        </select>
-        <button onclick="saveUserNote()" class="noti-btn" style="flex: 1; margin: 0; padding: 10px; border-radius: 12px;">✉️ ناما خۆ بنێره</button>
-    </div>
-
-    <div id="notes-container" style="max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; margin-top: 15px; padding-left: 5px;">
-        </div>
-</div>
-
-<script>
-    window.addEventListener('DOMContentLoaded', loadNotes);
-
-    function saveUserNote() {
-        const text = document.getElementById('user-note-text').value.trim();
-        const color = document.getElementById('note-color').value;
-        
-        if (!text) {
-            alert("هیڤیە نامەیەکێ بنڤیسە!");
-            return;
-        }
-
-        const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
-        notes.unshift({ text, color, date: new Date().toLocaleDateString() });
-        
-        localStorage.setItem('badinan_notes', JSON.stringify(notes));
-        document.getElementById('user-note-text').value = '';
-        loadNotes();
-    }
-
-    function loadNotes() {
-        const container = document.getElementById('notes-container');
-        container.innerHTML = '';
-        const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
-
-        if (notes.length === 0) {
-            container.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center; padding: 15px;">هێشتا چ نامە نینن، یەکەم کەس بی نامەکێ بهێلی!</p>';
-            return;
-        }
-
-        notes.forEach(note => {
-            const div = document.createElement('div');
-            // دیزاینا زەرفێ نامەیێ (Envelope Style)
-            div.style.background = 'rgba(255, 255, 255, 0.04)';
-            div.style.border = '1px solid rgba(255, 255, 255, 0.08)';
-            div.style.borderRight = `5px solid ${note.color}`;
-            div.style.padding = '14px 16px';
-            div.style.borderRadius = '16px';
-            div.style.fontSize = '14px';
-            div.style.color = 'var(--text-main)';
-            div.style.textAlign = 'right';
-            div.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-            div.style.position = 'relative';
-            
-            div.innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-                    <span style="font-size: 11px; color: ${note.color}; font-weight: 700; background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 6px;">✉️ ناما هێلای</span>
-                    <span style="font-size: 10px; color: var(--text-muted);">${note.date}</span>
-                </div>
-                <p style="margin: 0; line-height: 1.6; word-break: break-word; font-weight: 500;">${note.text}</p>
-            `;
-            container.appendChild(div);
-        });
-    }
-</script>
-<link rel="icon" type="image/png" href="لینکێ_وێنەیێ_تە_لێرە_دانە.png">
-<div class="top-bar">
-    <div class="logo-area" style="display: flex; align-items: center; gap: 8px;">
-        <!-- لێرە تو دشێی وێنەیەکێ بچووک دانێ -->
-        <img src="لینکێ_وێنەیێ_تە.png" style="width: 24px; height: 24px; border-radius: 50%;">
-        <h1>Badinan Motivation</h1>
-    </div>
-    <button class="circle-btn" onclick="toggleTheme()">🌓</button>
-</div>
-
