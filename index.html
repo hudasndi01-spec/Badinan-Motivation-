@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badinan Motivation - Secret Messages</title>
+    <title>Badinan Motivation</title>
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #0a192f 0%, #0f3460 100%);
@@ -14,6 +13,22 @@
             --text-muted: #8892b0;
             --accent-color: #64ffda;
             --accent-glow: rgba(100, 255, 218, 0.2);
+            --premium-bg: rgba(254, 243, 199, 0.05);
+            --premium-border: rgba(251, 191, 36, 0.3);
+            --premium-text: #fde047;
+        }
+
+        .light-mode {
+            --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-border: rgba(0, 0, 0, 0.1);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #0d9488;
+            --accent-glow: rgba(13, 148, 136, 0.2);
+            --premium-bg: rgba(254, 243, 199, 0.6);
+            --premium-border: rgba(217, 119, 6, 0.3);
+            --premium-text: #b45309;
         }
 
         body { 
@@ -27,11 +42,13 @@
             margin: 0;
             padding: 15px;
             box-sizing: border-box;
+            transition: background 0.3s ease;
         }
 
         .card { 
             background: var(--card-bg); 
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 25px 20px; 
             border-radius: 28px; 
             border: 1px solid var(--card-border);
@@ -40,13 +57,14 @@
             max-width: 400px; 
             width: 100%; 
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .logo-area { 
@@ -66,34 +84,126 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 10px var(--accent-glow);
             color: #0a192f;
             font-weight: bold;
         }
 
-        .notes-section {
-            background: rgba(0, 0, 0, 0.1);
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 15px;
-            text-align: right;
-            margin-top: 10px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 6px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            border: 1px solid var(--card-border);
-            background: rgba(255,255,255,0.05);
             color: var(--text-main);
-            font-size: 13px;
-            box-sizing: border-box;
-            outline: none;
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
         }
 
-        /* Modal / پەنجەرەیێن دەرکەتنی */
+        .stats-badge {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.08);
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            border: 1px solid var(--card-border);
+            font-weight: 600;
+        }
+
+        .clock-container {
+            margin-bottom: 15px;
+        }
+
+        #clock { 
+            font-size: 28px; 
+            font-weight: 800; 
+            color: var(--accent-color); 
+            margin: 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        #day-period {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .quote-box {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+
+        p#main-text { 
+            color: var(--text-main); 
+            font-size: 15px; 
+            line-height: 1.6; 
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .main-btn { 
+            background-color: var(--accent-color); 
+            color: #0a192f; 
+            border: none; 
+            padding: 12px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            flex: 2; 
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 14px var(--accent-glow);
+            transition: all 0.2s;
+        }
+
+        .fav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            flex: 1;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .fav-btn.active {
+            background: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+        }
+
+        .notes-section {
+            margin-top: 10px;
+            background: rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .footer-credits { 
+            margin-top: 15px; 
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Modal و پەنجەرەیێن دەرکەتنی */
         .modal-overlay {
             display: flex;
             position: fixed;
@@ -107,7 +217,7 @@
             box-sizing: border-box;
         }
         .modal-box {
-            background: #0f3460;
+            background: var(--card-bg);
             border: 1px solid var(--card-border);
             padding: 25px;
             border-radius: 24px;
@@ -118,51 +228,93 @@
             max-height: 85vh;
             overflow-y: auto;
         }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            background: rgba(255,255,255,0.05);
+            color: var(--text-main);
+            font-size: 13px;
+            box-sizing: border-box;
+            outline: none;
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="top-bar">
-            <div class="logo-area">
-                <div class="logo-icon">💌</div>
-                <span id="current-user-display" style="color: var(--accent-color);">مێڤان</span>
-            </div>
-            <span style="font-size: 11px; color: var(--text-muted); cursor: pointer;" onclick="document.getElementById('account-modal').style.display='flex'">گۆڕینا ئەکاونتی 🔄</span>
-        </div>
-
-        <div class="notes-section">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <h3 style="color: var(--accent-color); font-size: 14px; margin: 0;">💌 نامەیێن نهێنی بۆ هەڤالان</h3>
-                <span style="font-size: 11px; color: var(--accent-color); cursor: pointer; text-decoration: underline; font-weight: bold;" onclick="openInboxModal()">صندوقا من (<span id="inbox-count">0</span>)</span>
-            </div>
-            <label style="font-size: 11px; color: var(--text-muted);">ناڤێ وێ کەسێ:</label>
-            <input type="text" id="target-user" placeholder="بۆ نموونە: Huda" class="form-input">
-            
-            <label style="font-size: 11px; color: var(--text-muted);">نڤیسینا نامەیێ:</label>
-            <textarea id="private-msg-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 60px; padding: 8px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: var(--text-main); font-size: 12px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 10px;"></textarea>
-            
-            <button onclick="sendSecretMessage()" style="width: 100%; padding: 10px; font-size: 12px; background: var(--accent-color); color: #0a192f; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">هنارتنا نامەیێ بۆ هەڤالی 🚀</button>
-        </div>
-
-        <div style="margin-top: 15px; font-size: 11px; color: var(--text-muted);">
-            Created by: <b>Huda Shahin sindi</b>
-        </div>
-    </div>
-
-    <div id="account-modal" class="modal-overlay" style="display: none;">
+    <!-- پەنجەرەیا تومارکرنا ناڤ و کۆدا نهێنی (بۆ ڕێگری ژ تێکچوونا ناڤان) -->
+    <div id="account-modal" class="modal-overlay">
         <div class="modal-box" style="text-align: center;">
             <div style="font-size: 32px; margin-bottom: 10px;">🔐</div>
             <h3 style="color: var(--accent-color); margin-top: 0; font-size: 18px;">چێکرنا ئەکاونتا نهێنی</h3>
-            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">ناڤەکێ خۆ بنڤیسە دا کەسێن دی بشێن نامەیێن نهێنی بۆ تە بنێرن.</p>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">ناڤەکێ بێوێنە (Unique) و کۆدەکێ نهێنی بنڤیسە دا نامە ب دروستی بۆ تە بهێن.</p>
             
-            <input type="text" id="acc-username" placeholder="ناڤێ تە (بۆ نموونە: Huda)" class="form-input">
+            <input type="text" id="acc-username" placeholder="ناڤێ تە (بۆ نموونە: HudaSindi)" class="form-input">
             <input type="password" id="acc-password" placeholder="کۆدا نهێنی (Password)" class="form-input">
             
-            <button onclick="setupAccount()" style="width: 100%; padding: 10px; background: var(--accent-color); color: #0a192f; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 13px; margin-top: 5px;">چوونە ژوورڤە / تۆمارکرن</button>
+            <button onclick="setupAccount()" style="width: 100%; padding: 10px; background: var(--accent-color); color: #0a192f; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 13px; margin-top: 5px;">تۆمارکرن و دەستپێکرن</button>
         </div>
     </div>
 
+    <!-- سەرەتا سایتێ سەرەکی -->
+    <div class="card">
+        <div class="top-bar">
+            <div class="logo-area">
+                <div class="logo-icon">🌙</div>
+                <span id="current-user-display">مێڤان</span>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">☀️/🌙 گۆڕینا ڕەنگی</button>
+        </div>
+
+        <div class="stats-badge">
+            <span id="streak-counter">🔥 رۆژێن بەردەوام: 1 ڕۆژ</span>
+            <span id="fav-counter" style="cursor: pointer; text-decoration: underline;" onclick="openFavModal()">⭐ دلخواز (0)</span>
+        </div>
+
+        <div class="clock-container">
+            <div id="clock">00:00:00</div>
+            <div id="day-period">بارکردن...</div>
+        </div>
+
+        <div class="quote-box">
+            <p id="main-text">ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!</p>
+        </div>
+
+        <div class="btn-group">
+            <button class="main-btn" onclick="getNewQuote()">پەیڤێن هاندەر</button>
+            <button class="fav-btn" id="favToggleBtn" onclick="toggleCurrentFavorite()">⭐ لایڤ</button>
+        </div>
+
+        <!-- پشکا هنارتنا نامەیێن نهێنی بۆ ناسیا / هەڤالان -->
+        <div class="notes-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <h3 style="color: var(--accent-color); font-size: 13px; margin: 0;">💌 نامەیێن نهێنی بۆ هەڤالان</h3>
+                <span style="font-size: 10px; color: var(--text-muted); cursor: pointer; text-decoration: underline;" onclick="openInboxModal()">صندوقا من (<span id="inbox-count">0</span>)</span>
+            </div>
+            <input type="text" id="target-user" placeholder="ناڤێ یوزەرا کەسی (بۆ نموونە: HudaSindi)" class="form-input" style="margin-bottom: 6px; padding: 6px; font-size: 11px;">
+            <textarea id="private-msg-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 35px; padding: 6px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-main); font-size: 11px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 6px;"></textarea>
+            <button onclick="sendSecretMessage()" style="width: 100%; padding: 6px; font-size: 11px; background: var(--accent-color); color: #0a192f; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">هنارتنا نامەیێ</button>
+        </div>
+
+        <div class="footer-credits" style="margin-top: 10px;">
+            Created by: <b>Huda Shahin sindi</b><br>
+            هەمی ماف پاراستینە © 2026
+        </div>
+    </div>
+
+    <!-- پەنجەرەیا دلخوازان -->
+    <div id="fav-modal" class="modal-overlay" style="display: none;" onclick="document.getElementById('fav-modal').style.display='none'">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <h3 style="color: var(--accent-color); margin-top: 0; font-size: 15px;">⭐ پەیڤێن دلخوازێن تە</h3>
+            <div id="fav-list-container" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; max-height: 40vh; overflow-y: auto;"></div>
+            <button onclick="document.getElementById('fav-modal').style.display='none'" style="width:100%; padding:8px; background:#ff6b6b; color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">گرتن</button>
+        </div>
+    </div>
+
+    <!-- صندوقا نامەیێن من -->
     <div id="inbox-modal" class="modal-overlay" style="display: none;" onclick="document.getElementById('inbox-modal').style.display='none'">
         <div class="modal-box" onclick="event.stopPropagation()">
             <h3 style="color: var(--accent-color); margin-top: 0; font-size: 15px;">📥 نامەیێن نهێنی یێن بۆ تە هاتین</h3>
@@ -215,7 +367,7 @@
 
             let allMessages = JSON.parse(localStorage.getItem('badinan_secret_messages') || '[]');
             allMessages.push({
-                to: target,
+                to: target.toLowerCase(),
                 from: currentUser.name,
                 text: msg,
                 date: new Date().toLocaleDateString()
@@ -225,7 +377,6 @@
             document.getElementById('target-user').value = '';
             document.getElementById('private-msg-text').value = '';
             alert("✨ ناما تە ب سەرکەفتن بۆ (" + target + ") هاتە هنارتن!");
-            updateInboxCount();
         }
 
         function openInboxModal() {
@@ -234,7 +385,7 @@
             container.innerHTML = '';
             
             let allMessages = JSON.parse(localStorage.getItem('badinan_secret_messages') || '[]');
-            let myMessages = allMessages.filter(m => m.to.toLowerCase() === currentUser.name.toLowerCase());
+            let myMessages = allMessages.filter(m => m.to === currentUser.name.toLowerCase());
             
             if(myMessages.length === 0) {
                 container.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">هێشتا چ نامە بۆ تە نەهاتینە!</p>';
@@ -256,10 +407,137 @@
         function updateInboxCount() {
             if(!currentUser) return;
             let allMessages = JSON.parse(localStorage.getItem('badinan_secret_messages') || '[]');
-            let count = allMessages.filter(m => m.to.toLowerCase() === currentUser.name.toLowerCase()).length;
+            let count = allMessages.filter(m => m.to === currentUser.name.toLowerCase()).length;
             document.getElementById('inbox-count').textContent = count;
+        }
+
+        // گۆڕینا ڕەنگی (Dark / Light Mode)
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            let isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('badinan_theme', isLight ? 'light' : 'dark');
+        }
+        if (localStorage.getItem('badinan_theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+
+        // کاتژمێر
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${String(hours).padStart(2, '0')}:${minutes}:${seconds}`;
+            
+            let period = "";
+            if (hours >= 5 && hours < 12) period = "🌅 دەمێ سپێدەهیێ یە";
+            else if (hours >= 12 && hours < 16) period = "☀️ دەمێ نیڤڕۆیە";
+            else if (hours >= 16 && hours < 19) period = "🌇 دەمێ ئێڤاری یە";
+            else period = "🌙 دەمێ شەڤێ یە";
+            document.getElementById('day-period').textContent = period;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // ڕۆژێن بەردەوام (Streak)
+        function checkStreak() {
+            let lastVisit = localStorage.getItem('badinan_last_visit');
+            let streak = parseInt(localStorage.getItem('badinan_streak') || '1');
+            let today = new Date().toDateString();
+
+            if (lastVisit !== today) {
+                if (lastVisit) {
+                    let lastDate = new Date(lastVisit);
+                    let currentDate = new Date(today);
+                    let diffDays = Math.ceil(Math.abs(currentDate - lastDate) / (1000 * 60 * 60 * 24));
+                    if (diffDays === 1) streak += 1;
+                    else if (diffDays > 1) streak = 1;
+                }
+                localStorage.setItem('badinan_last_visit', today);
+                localStorage.setItem('badinan_streak', streak);
+            }
+            document.getElementById('streak-counter').textContent = `🔥 رۆژێن بەردەوام: ${streak} ڕۆژ`;
+        }
+        checkStreak();
+
+        const quotes = [
+            "ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!",
+            "تو گەلەک ژ هندێ ب هێزتری تو دەستا ب داهێلی.",
+            "بخۆ بژی، نە بۆ ڕازیکرنا خەڵکی.",
+            "هەر نوکە دەست پێ بکە، چ جاران درەنگ نینە.",
+            "تو یا ب هێزی، باوەریێ ب شیانێن خۆ بینە.",
+            "تشتێ هەر گرنگ ل ڤێ جیهانێ، ئارامیا مێشکێ تە یە؛ هەر تشتێ وی تێک بدەت، ژێ دوور بکەڤە.",
+            "کەسێن نەرێنی تنێ دڤێن هێزا تە ببڕن؛ نەهێلە ئارامیا ڕۆژا تە تێک بدەن.",
+            "تو نە مەجبووری کەسەکێ ژ خۆ ڕازیکەی، گرنگ ئەوە تو ژ خۆ ڕازی بی و ئەڤە بەسە."
+        ];
+
+        let currentQuote = quotes[0];
+
+        function getNewQuote() {
+            currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('main-text').textContent = currentQuote;
+            updateFavButtonState();
+        }
+
+        // سیستمێ دلخوازان (Favorites)
+        function getFavorites() {
+            return JSON.parse(localStorage.getItem('badinan_favorites') || '[]');
+        }
+
+        function toggleCurrentFavorite() {
+            let favs = getFavorites();
+            let index = favs.indexOf(currentQuote);
+            if (index > -1) favs.splice(index, 1);
+            else favs.push(currentQuote);
+            localStorage.setItem('badinan_favorites', JSON.stringify(favs));
+            updateFavButtonState();
+            updateFavCounter();
+        }
+
+        function updateFavButtonState() {
+            let btn = document.getElementById('favToggleBtn');
+            if (getFavorites().includes(currentQuote)) {
+                btn.classList.add('active');
+                btn.textContent = '❤️ دلخوازە';
+            } else {
+                btn.classList.remove('active');
+                btn.textContent = '⭐ لایڤ';
+            }
+        }
+
+        function updateFavCounter() {
+            document.getElementById('fav-counter').textContent = `⭐ دلخواز (${getFavorites().length})`;
+        }
+        updateFavCounter();
+        updateFavButtonState();
+
+        function openFavModal() {
+            let favs = getFavorites();
+            let container = document.getElementById('fav-list-container');
+            container.innerHTML = '';
+            if (favs.length === 0) {
+                container.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">هێشتا چ پەیڤ نینن د دلخوازێن تە دا!</p>';
+            } else {
+                favs.forEach((fav, i) => {
+                    let div = document.createElement('div');
+                    div.style.background = 'rgba(255,255,255,0.05)';
+                    div.style.padding = '8px';
+                    div.style.borderRadius = '8px';
+                    div.style.fontSize = '12px';
+                    div.style.color = 'var(--text-main)';
+                    div.style.cursor = 'pointer';
+                    div.textContent = `${i+1}. `${fav}`;
+                    div.onclick = () => {
+                        currentQuote = fav;
+                        document.getElementById('main-text').textContent = currentQuote;
+                        updateFavButtonState();
+                        document.getElementById('fav-modal').style.display = 'none';
+                    };
+                    container.appendChild(div);
+                });
+            }
+            document.getElementById('fav-modal').style.display = 'flex';
         }
     </script>
 </body>
 </html>
-
