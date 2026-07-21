@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" class="dark">
 <head>
@@ -40,10 +41,10 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 light:bg-slate-100 light:text-slate-900 min-h-screen flex flex-col items-center justify-between p-4 transition-colors duration-300">
+<body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 bg-slate-100 text-slate-900 min-h-screen flex flex-col items-center justify-between p-4 transition-colors duration-300">
 
-    <!-- سەرێ سایت & Streak -->
-    <header class="max-w-md w-full flex items-center justify-between bg-slate-900/90 dark:bg-slate-900/90 light:bg-white backdrop-blur-md border border-slate-800 dark:border-slate-800 light:border-slate-300 px-4 py-3 rounded-2xl shadow-lg mb-4">
+‎    <!-- سەرێ سایت & Streak -->
+    <header class="max-w-md w-full flex items-center justify-between bg-slate-900/90 dark:bg-slate-900/90 bg-white backdrop-blur-md border border-slate-800 dark:border-slate-800 border-slate-300 px-4 py-3 rounded-2xl shadow-lg mb-4">
         <div class="flex items-center gap-2">
             <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-md">BM</span>
             <span class="text-xs font-bold tracking-wide">Badinan Motivation</span>
@@ -52,36 +53,36 @@
             <div class="flex items-center gap-1 text-[11px] bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded-xl border border-emerald-500/20 shadow-inner">
                 <i class="fa-solid fa-fire text-amber-500"></i> <span id="streakCount">1</span> ڕۆژ Streak
             </div>
-            <button id="themeToggleBtn" class="w-9 h-9 rounded-xl bg-slate-800 text-amber-400 dark:bg-slate-800 light:bg-slate-200 light:text-amber-600 flex items-center justify-center text-xs transition">
+            <button id="themeToggleBtn" class="w-9 h-9 rounded-xl bg-slate-800 text-amber-400 dark:bg-slate-800 bg-slate-200 text-amber-600 flex items-center justify-center text-xs transition">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
         </div>
     </header>
 
-    <!-- ناوەندا سەرەکی -->
+‎    <!-- ناوەندا سەرەکی -->
     <main class="max-w-md w-full space-y-4">
         
-        <!-- ٣ دوگمەیێن سەرەکی (Buttons) -->
+‎        <!-- ٣ دوگمەیێن سەرەکی (Buttons) -->
         <div class="grid grid-cols-3 gap-2">
             <button onclick="switchTab('quotes')" id="btnQuotes" class="tab-btn bg-emerald-500 text-slate-950 font-bold py-2.5 px-2 rounded-xl text-xs transition shadow-md shadow-emerald-500/20 flex flex-col items-center gap-1">
                 <i class="fa-solid fa-bolt text-sm"></i> گۆتنێن هاندەر
             </button>
-            <button onclick="switchTab('secrets')" id="btnSecrets" class="tab-btn bg-slate-800 text-slate-300 dark:bg-slate-800 dark:text-slate-300 light:bg-slate-200 light:text-slate-700 font-bold py-2.5 px-2 rounded-xl text-xs transition flex flex-col items-center gap-1">
+            <button onclick="switchTab('secrets')" id="btnSecrets" class="tab-btn bg-slate-800 text-slate-300 dark:bg-slate-800 dark:text-slate-300 bg-slate-200 text-slate-700 font-bold py-2.5 px-2 rounded-xl text-xs transition flex flex-col items-center gap-1">
                 <i class="fa-solid fa-gift text-sm"></i> دیاریا نهێنی
             </button>
-            <button onclick="switchTab('planner')" id="btnPlanner" class="tab-btn bg-slate-800 text-slate-300 dark:bg-slate-800 dark:text-slate-300 light:bg-slate-200 light:text-slate-700 font-bold py-2.5 px-2 rounded-xl text-xs transition flex flex-col items-center gap-1">
+            <button onclick="switchTab('planner')" id="btnPlanner" class="tab-btn bg-slate-800 text-slate-300 dark:bg-slate-800 dark:text-slate-300 bg-slate-200 text-slate-700 font-bold py-2.5 px-2 rounded-xl text-xs transition flex flex-col items-center gap-1">
                 <i class="fa-solid fa-calendar-days text-sm"></i> خشتەیا ڕۆژانە
             </button>
         </div>
 
-        <!-- بەشێ ١: گۆتنێن هاندەر -->
-        <div id="tabQuotes" class="tab-content bg-slate-900/90 dark:bg-slate-900/90 light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-300 rounded-3xl p-5 shadow-2xl space-y-4">
-            <div class="bg-gradient-to-r from-blue-950/60 to-emerald-950/60 light:from-blue-100 light:to-emerald-100 border border-cyan-500/20 rounded-2xl p-3 text-center">
-                <div id="liveClock" class="text-xl font-extrabold text-cyan-400 light:text-cyan-600 tracking-wider">00:00:00</div>
-                <p id="clockMessage" class="text-[11px] text-slate-300 light:text-slate-700 mt-1">ئەڤڕۆ ڕۆژا تە یە، پڕ هێز و ئارامی بیت! 🌅</p>
+‎        <!-- بەشێ ١: گۆتنێن هاندەر -->
+        <div id="tabQuotes" class="tab-content bg-slate-900/90 dark:bg-slate-900/90 bg-white border border-slate-800 dark:border-slate-800 border-slate-300 rounded-3xl p-5 shadow-2xl space-y-4">
+            <div class="bg-gradient-to-r from-blue-950/60 to-emerald-950/60 dark:from-blue-950/60 dark:to-emerald-950/60 from-blue-100 to-emerald-100 border border-cyan-500/20 rounded-2xl p-3 text-center">
+                <div id="liveClock" class="text-xl font-extrabold text-cyan-400 dark:text-cyan-400 text-cyan-600 tracking-wider">00:00:00</div>
+                <p id="clockMessage" class="text-[11px] text-slate-300 dark:text-slate-300 text-slate-700 mt-1">ئەڤڕۆ ڕۆژا تە یە، پڕ هێز و ئارامی بیت! 🌅</p>
             </div>
 
-            <div class="bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-50 border border-slate-800 dark:border-slate-800 light:border-slate-200 rounded-2xl p-5 text-center min-h-[120px] flex flex-col justify-center items-center relative shadow-inner">
+            <div class="bg-slate-950/60 dark:bg-slate-950/60 bg-slate-50 border border-slate-800 dark:border-slate-800 border-slate-200 rounded-2xl p-5 text-center min-h-[120px] flex flex-col justify-center items-center relative shadow-inner">
                 <p id="quoteText" class="text-xs font-medium leading-relaxed">"ئەڤڕۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!"</p>
             </div>
 
@@ -89,33 +90,33 @@
                 <button id="newQuoteBtn" class="flex-1 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-90 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
                     <i class="fa-solid fa-shuffle"></i> گۆتنا هاندەر
                 </button>
-                <button id="saveFavBtn" class="bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 text-amber-400 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-1 text-xs border border-slate-700 dark:border-slate-700 light:border-slate-300 shadow-md">
+                <button id="saveFavBtn" class="bg-slate-800 dark:bg-slate-800 bg-slate-200 hover:bg-slate-700 text-amber-400 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-1 text-xs border border-slate-700 dark:border-slate-700 border-slate-300 shadow-md">
                     <i class="fa-solid fa-star"></i> <span id="favCount">0</span>
                 </button>
             </div>
 
-            <button onclick="openFavoritesModal()" class="w-full bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 border border-cyan-500/30 hover:border-cyan-500/60 text-cyan-300 light:text-cyan-700 font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
+            <button onclick="openFavoritesModal()" class="w-full bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 border border-cyan-500/30 hover:border-cyan-500/60 text-cyan-300 dark:text-cyan-300 text-cyan-700 font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
                 <i class="fa-solid fa-bookmark text-amber-400"></i> دیتنا گۆتنێن دڵخواز (<span id="favListCount">0</span>)
             </button>
         </div>
 
-        <!-- بەشێ ٢: دیاریا نهێنی -->
-        <div id="tabSecrets" class="tab-content hidden bg-slate-900/90 dark:bg-slate-900/90 light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-300 rounded-3xl p-5 shadow-2xl space-y-4">
+‎        <!-- بەشێ ٢: دیاریا نهێنی -->
+        <div id="tabSecrets" class="tab-content hidden bg-slate-900/90 dark:bg-slate-900/90 bg-white border border-slate-800 dark:border-slate-800 border-slate-300 rounded-3xl p-5 shadow-2xl space-y-4">
             
             <div id="giftCreatorView" class="space-y-4">
                 <h2 class="text-sm font-bold text-emerald-400 flex items-center gap-2">
                     <i class="fa-solid fa-gift"></i> دروستکرنا بۆکسا دیاریا نهێنی
                 </h2>
-                <p class="text-[11px] text-slate-400 light:text-slate-600">نامەیەکا تایبەت د ناڤ بۆسکەکا دیاریێ دا بهێلە و بۆ کەسێ بەرانبەر بنێرە:</p>
+                <p class="text-[11px] text-slate-400 dark:text-slate-400 text-slate-600">نامەیەکا تایبەت د ناڤ بۆسکەکا دیاریێ دا بهێلە و بۆ کەسێ بەرانبەر بنێرە:</p>
                 
                 <div class="space-y-3 text-xs">
                     <div>
-                        <label class="block text-slate-400 light:text-slate-600 mb-1">ناڤێ وەرگری:</label>
-                        <input type="text" id="giftRecipient" placeholder="ناڤێ کەسێ بەرانبەر..." class="w-full bg-slate-950/80 dark:bg-slate-950/80 light:bg-slate-100 border border-slate-800 dark:border-slate-800 light:border-slate-300 rounded-xl px-3 py-2 text-slate-200 dark:text-slate-200 light:text-slate-800 focus:outline-none focus:border-emerald-500">
+                        <label class="block text-slate-400 dark:text-slate-400 text-slate-600 mb-1">ناڤێ وەرگری:</label>
+                        <input type="text" id="giftRecipient" placeholder="ناڤێ کەسێ بەرانبەر..." class="w-full bg-slate-950/80 dark:bg-slate-950/80 bg-slate-100 border border-slate-800 dark:border-slate-800 border-slate-300 rounded-xl px-3 py-2 text-slate-200 dark:text-slate-200 text-slate-800 focus:outline-none focus:border-emerald-500">
                     </div>
                     <div>
-                        <label class="block text-slate-400 light:text-slate-600 mb-1">پەیڤا دیاریێ / نامە:</label>
-                        <textarea id="giftMessageText" rows="3" class="w-full bg-slate-950/80 dark:bg-slate-950/80 light:bg-slate-100 border border-slate-800 dark:border-slate-800 light:border-slate-300 rounded-xl p-3 text-slate-200 dark:text-slate-200 light:text-slate-800 focus:outline-none focus:border-emerald-500 resize-none">"تو کەسەک هەژیی و شایستەی سەرکەفتنێ ی، هەر دەم بەهێز بمێنە!"</textarea>
+                        <label class="block text-slate-400 dark:text-slate-400 text-slate-600 mb-1">پەیڤا دیاریێ / نامە:</label>
+                        <textarea id="giftMessageText" rows="3" class="w-full bg-slate-950/80 dark:bg-slate-950/80 bg-slate-100 border border-slate-800 dark:border-slate-800 border-slate-300 rounded-xl p-3 text-slate-200 dark:text-slate-200 text-slate-800 focus:outline-none focus:border-emerald-500 resize-none">"تو کەسەک هەژیی و شایستەی سەرکەفتنێ ی، هەر دەم بەهێز بمێنە!"</textarea>
                     </div>
                     <button onclick="generateGiftLink()" class="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold py-2.5 rounded-xl text-xs shadow-md transition hover:opacity-90 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-link text-sm"></i> دروستکرن و کۆپیکرنا لینکا دیاریێ
@@ -125,12 +126,12 @@
 
             <div id="giftReceiverView" class="hidden text-center space-y-4 py-4">
                 <h2 id="giftTitle" class="text-sm font-bold text-amber-400">دیاریەک بۆ تە هاتییە! 🎁</h2>
-                <p class="text-xs text-slate-300 light:text-slate-700">کلیکێ ل سەر بۆکسێ بکە دا دیاریا خۆ ڤەکەی:</p>
+                <p class="text-xs text-slate-300 dark:text-slate-300 text-slate-700">کلیکێ ل سەر بۆکسێ بکە دا دیاریا خۆ ڤەکەی:</p>
                 
                 <div onclick="openTheGiftBox()" class="gift-box cursor-pointer inline-block bg-gradient-to-tr from-emerald-600 to-cyan-600 p-6 rounded-3xl shadow-2xl border-4 border-amber-300 text-slate-950 my-2">
                     <i class="fa-solid fa-gift text-5xl text-amber-200"></i>
                 </div>
-                <div id="openedMessageBox" class="hidden bg-slate-950/80 dark:bg-slate-950/80 light:bg-slate-100 border border-emerald-500/50 p-4 rounded-2xl text-xs text-slate-100 light:text-slate-900 space-y-2 animate-pulse">
+                <div id="openedMessageBox" class="hidden bg-slate-950/80 dark:bg-slate-950/80 bg-slate-100 border border-emerald-500/50 p-4 rounded-2xl text-xs text-slate-100 dark:text-slate-100 text-slate-900 space-y-2 animate-pulse">
                     <p class="font-bold text-emerald-400">نامەیا تە:</p>
                     <p id="finalGiftText" class="italic leading-relaxed"></p>
                 </div>
@@ -138,70 +139,70 @@
 
         </div>
 
-        <!-- بەشێ ٣: خشتەیا مەزن و ڕۆژانە دگەل سێستەمێ ✅ Streak -->
-        <div id="tabPlanner" class="tab-content hidden bg-slate-900/90 dark:bg-slate-900/90 light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-300 rounded-3xl p-5 shadow-2xl space-y-4">
+‎        <!-- بەشێ ٣: خشتەیا مەزن و ڕۆژانە دگەل سێستەمێ ✅ Streak -->
+        <div id="tabPlanner" class="tab-content hidden bg-slate-900/90 dark:bg-slate-900/90 bg-white border border-slate-800 dark:border-slate-800 border-slate-300 rounded-3xl p-5 shadow-2xl space-y-4">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2">
                 <h2 class="text-sm font-bold text-cyan-400 flex items-center gap-2">
                     <i class="fa-solid fa-calendar-check"></i> خشتەیا مەزن و ڕۆژانە
                 </h2>
                 <span class="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded-lg border border-cyan-500/20">هەر ڕۆژەک ✅ خۆ تۆمار بکە</span>
             </div>
-            <p class="text-[11px] text-slate-400 light:text-slate-600">پلانا خۆ بنڤیسە و ئەگەر تە ب جهـ ئینا، کلیکێ ل سەر ✅ بکە:</p>
+            <p class="text-[11px] text-slate-400 dark:text-slate-400 text-slate-600">پلانا خۆ بنڤیسە و ئەگەر تە ب جهـ ئینا، کلیکێ ل سەر ✅ بکە:</p>
             
             <div class="space-y-3 text-xs">
-                <!-- سبەهی -->
-                <div class="bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-300 space-y-2">
+‎                <!-- سبەهی -->
+                <div class="bg-slate-950/60 dark:bg-slate-950/60 bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 border-slate-300 space-y-2">
                     <div class="flex items-center justify-between">
                         <span class="text-emerald-400 font-bold"><i class="fa-solid fa-sun"></i> سبەهی:</span>
                         <button onclick="toggleCheck('morning')" id="checkBtn_morning" class="w-7 h-7 rounded-xl bg-slate-800 text-slate-500 flex items-center justify-center transition border border-slate-700 shadow-sm">
                             <i class="fa-solid fa-check"></i>
                         </button>
                     </div>
-                    <input type="text" id="planMorning" placeholder="پلانا سبەهیا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 light:bg-white light:text-slate-900 text-xs focus:outline-none focus:border-emerald-500">
+                    <input type="text" id="planMorning" placeholder="پلانا سبەهیا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 dark:bg-slate-900 dark:text-slate-200 bg-white text-slate-900 text-xs focus:outline-none focus:border-emerald-500">
                 </div>
 
-                <!-- نیوەڕۆ -->
-                <div class="bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-300 space-y-2">
+‎                <!-- نیوەڕۆ -->
+                <div class="bg-slate-950/60 dark:bg-slate-950/60 bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 border-slate-300 space-y-2">
                     <div class="flex items-center justify-between">
                         <span class="text-cyan-400 font-bold"><i class="fa-solid fa-cloud-sun"></i> نیوەڕۆ:</span>
                         <button onclick="toggleCheck('noon')" id="checkBtn_noon" class="w-7 h-7 rounded-xl bg-slate-800 text-slate-500 flex items-center justify-center transition border border-slate-700 shadow-sm">
                             <i class="fa-solid fa-check"></i>
                         </button>
                     </div>
-                    <input type="text" id="planNoon" placeholder="پلانا نیوەڕۆیا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 light:bg-white light:text-slate-900 text-xs focus:outline-none focus:border-cyan-500">
+                    <input type="text" id="planNoon" placeholder="پلانا نیوەڕۆیا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 dark:bg-slate-900 dark:text-slate-200 bg-white text-slate-900 text-xs focus:outline-none focus:border-cyan-500">
                 </div>
 
-                <!-- ئێڤاری -->
-                <div class="bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-300 space-y-2">
+‎                <!-- ئێڤاری -->
+                <div class="bg-slate-950/60 dark:bg-slate-950/60 bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 border-slate-300 space-y-2">
                     <div class="flex items-center justify-between">
                         <span class="text-amber-400 font-bold"><i class="fa-solid fa-cloud-moon"></i> ئێڤاری:</span>
                         <button onclick="toggleCheck('evening')" id="checkBtn_evening" class="w-7 h-7 rounded-xl bg-slate-800 text-slate-500 flex items-center justify-center transition border border-slate-700 shadow-sm">
                             <i class="fa-solid fa-check"></i>
                         </button>
                     </div>
-                    <input type="text" id="planEvening" placeholder="پلانا ئێڤاریا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 light:bg-white light:text-slate-900 text-xs focus:outline-none focus:border-amber-500">
+                    <input type="text" id="planEvening" placeholder="پلانا ئێڤاریا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 dark:bg-slate-900 dark:text-slate-200 bg-white text-slate-900 text-xs focus:outline-none focus:border-amber-500">
                 </div>
 
-                <!-- مەغرەب -->
-                <div class="bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-300 space-y-2">
+‎                <!-- مەغرەب -->
+                <div class="bg-slate-950/60 dark:bg-slate-950/60 bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 border-slate-300 space-y-2">
                     <div class="flex items-center justify-between">
                         <span class="text-purple-400 font-bold"><i class="fa-solid fa-moon"></i> مەغرەب:</span>
                         <button onclick="toggleCheck('maghrib')" id="checkBtn_maghrib" class="w-7 h-7 rounded-xl bg-slate-800 text-slate-500 flex items-center justify-center transition border border-slate-700 shadow-sm">
                             <i class="fa-solid fa-check"></i>
                         </button>
                     </div>
-                    <input type="text" id="planMaghrib" placeholder="پلانا مەغرەبا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 light:bg-white light:text-slate-900 text-xs focus:outline-none focus:border-purple-500">
+                    <input type="text" id="planMaghrib" placeholder="پلانا مەغرەبا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 dark:bg-slate-900 dark:text-slate-200 bg-white text-slate-900 text-xs focus:outline-none focus:border-purple-500">
                 </div>
 
-                <!-- شەڤ -->
-                <div class="bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-300 space-y-2">
+‎                <!-- شەڤ -->
+                <div class="bg-slate-950/60 dark:bg-slate-950/60 bg-slate-100 p-3 rounded-2xl border border-slate-800 dark:border-slate-800 border-slate-300 space-y-2">
                     <div class="flex items-center justify-between">
                         <span class="text-blue-400 font-bold"><i class="fa-solid fa-star-and-crescent"></i> شەڤ:</span>
                         <button onclick="toggleCheck('night')" id="checkBtn_night" class="w-7 h-7 rounded-xl bg-slate-800 text-slate-500 flex items-center justify-center transition border border-slate-700 shadow-sm">
                             <i class="fa-solid fa-check"></i>
                         </button>
                     </div>
-                    <input type="text" id="planNight" placeholder="پلانا شەڤا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 light:bg-white light:text-slate-900 text-xs focus:outline-none focus:border-blue-500">
+                    <input type="text" id="planNight" placeholder="پلانا شەڤا خۆ لێرە بنڤیسە..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 dark:bg-slate-900 dark:text-slate-200 bg-white text-slate-900 text-xs focus:outline-none focus:border-blue-500">
                 </div>
 
                 <button onclick="saveMyPlanner()" class="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs shadow-lg transition hover:opacity-90 flex items-center justify-center gap-2">
@@ -210,9 +211,9 @@
             </div>
         </div>
 
-        <!-- بەشێ پریمۆم -->
-        <div class="bg-slate-900/50 dark:bg-slate-900/50 light:bg-slate-200/50 border border-slate-800/80 rounded-2xl p-3 text-center flex items-center justify-between">
-            <div class="flex items-center gap-2 text-xs text-slate-400 light:text-slate-600">
+‎        <!-- بەشێ پریمۆم -->
+        <div class="bg-slate-900/50 dark:bg-slate-900/50 bg-slate-200/50 border border-slate-800/80 rounded-2xl p-3 text-center flex items-center justify-between">
+            <div class="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-400 text-slate-600">
                 <i class="fa-solid fa-lock text-amber-400"></i>
                 <span>بەشێ پریمۆم (تایبەتمەندیێن پێشکەفتی)</span>
             </div>
@@ -221,76 +222,76 @@
 
     </main>
 
-    <!-- پەنجەرا دڵخوازان -->
+‎    <!-- پەنجەرا دڵخوازان -->
     <div id="favModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-800 light:border-slate-300 rounded-3xl p-5 max-w-sm w-full shadow-2xl space-y-4 relative max-h-[80vh] flex flex-col">
-            <div class="flex items-center justify-between border-b border-slate-800 light:border-slate-200 pb-3">
+        <div class="bg-slate-900 dark:bg-slate-900 bg-white border border-slate-800 border-slate-300 rounded-3xl p-5 max-w-sm w-full shadow-2xl space-y-4 relative max-h-[80vh] flex flex-col">
+            <div class="flex items-center justify-between border-b border-slate-800 border-slate-200 pb-3">
                 <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2"><i class="fa-solid fa-star"></i> گۆتنێن دڵخوازێن من</h3>
-                <button onclick="closeFavoritesModal()" class="text-slate-400 hover:text-white light:text-slate-600 text-xs"><i class="fa-solid fa-xmark text-base"></i></button>
+                <button onclick="closeFavoritesModal()" class="text-slate-400 hover:text-white text-slate-600 text-xs"><i class="fa-solid fa-xmark text-base"></i></button>
             </div>
-            <div id="favModalList" class="overflow-y-auto space-y-2 flex-1 text-xs text-slate-300 light:text-slate-700"></div>
+            <div id="favModalList" class="overflow-y-auto space-y-2 flex-1 text-xs text-slate-300 dark:text-slate-300 text-slate-700"></div>
         </div>
     </div>
 
-    <!-- فۆتەر -->
+‎    <!-- فۆتەر -->
     <footer class="text-center text-[10px] text-slate-500 space-y-1 mt-4">
         Created by: <span class="text-slate-400 font-medium">Huda Shahin Sindi</span><br>
-        3026 @ هەمی ماف پاراستینە
+‎        3026 @ هەمی ماف پاراستینە
     </footer>
 
     <script>
         const quotes = [
-            "ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!",
-            "تو گەلەک ژ هندێ ب هێزتری تو دەستا ب داهێلی.",
-            "بخۆ بژی، نە بۆ ڕازیکرنا خەڵکی.",
-            "هەر نوکە دەست پێ بکە، چ جاران درەنگ نینە.",
-            "تو یا ب هێزی، باوەریێ ب شیانێن خۆ بینە.",
-            "ئەڤرۆ دەرفەتەکا نووی یە بۆ هندێ تو بگەهیە حەزێن خۆ.",
-            "خەونێن تە مەزنن، هەولدانێن خۆ ژی مەزنتر لێ بکە.",
-            "تو داهێنەرا ژیانا خۆیی، جوان ڕەنگ بکە.",
-            "هەر تشتەکێ ئەڤرۆ دکەی، سوبە دێ پێ کەیفخۆش بی.",
-            "تو ب تنێ دشێی ژیانا خۆ بگۆهۆڕی، دەست پێ بکە.",
-            "ئارام بە، خودێ دێ دەرگەهێن خێڕێ بۆ تە ڤەکەت.",
-            "پێنگاڤەکا بچووک باشترە ژ ڕاوەستانێ.",
-            "تو ژ هەژی باشترین تشتی د ژیانێ دا.",
-            "دەست ژ هیڤیێن خۆ بەرنەدە، تو کەسەک خودان شیانی.",
-            "ئەڤرۆ کار بکە، دا کو سوبە شانازیێ ب خۆ بەی.",
-            "ترسێ ژ دلێ خۆ دەر بێخە و بەرەف پێش هەرە.",
-            "ماندیبوونا ئەڤرۆ، دێ بیتە کەیفخۆشیا سوبەهی.",
-            "کەسەک نینە شوینا تە شەڕی بۆ خەونێن تە بکەت.",
-            "بڕیارێ بدە و چو جاران سستیێ تێدا نەکە.",
-            "هەر دەمەکێ تو تێدا دژی، دەمەکێ زێڕینە.",
-            "ژ دەستپێکرنا نوو نەترسە، ئەڤە دەرفەتا تە یە.",
-            "ئەڤرۆ یا پڕە ژ وزە و هێزێ، بکاربینە!",
-            "تو یا بڕیاردەری، چو هێز نەشێن تە ڕاگرن.",
-            "هەول بدە ئەڤرۆ باشتر بی ژ دوهی.",
-            "سەبر کلیلا هەر دەرگەهەکەکێ داخستی یە.",
-            "ب دڵسۆزی کار بکە، ئەنجام دێ تە مەندەهوش کەن.",
-            "تو یا تایبەتی، چو کەس وەک تە نین.",
-            "ژیان یا کورتە، ب کەیف و سەرکەفتن دەرباز بکە.",
-            "سەرکەفتن ناهێت، پێدڤییە تو بۆ بچی.",
-            "خودێ دگەل تە یە، چ خەمان نەخۆ.",
-            "تو خودان ئیرادەیەکا بهێزی.",
-            "بێدەنگ کار بکە، بهێڵە دەنگێ سەرکەفتنا تە بڵند ببیت.",
-            "هەر ڕۆژەکا نوو، شانسەک نوو یە بۆ سەرکەفتنێ.",
-            "پاشەڕۆژ یا وان کەسانە یێن باوەری ب خەونێن خۆ هەی.",
-            "ئارمانجێن مەزن قوربانیێن مەزن دڤێن.",
-            "تو ژ وێ ب هێزتری یا دیار دکەی.",
-            "ئارمانج بێ پلان، تنێ خەونەکە.",
-            "بچووکترین پێنگاڤ ژی باشترە ژ جهەکێ دیار.",
-            "کەسێ نەکە خودانێ بریارێن خۆ؛ ژیانا تە یا تە یە و کەس ماف نینە تێک بدەت.",
-            "تو نە مەجبووری کەسەکێ ژ خۆ ڕازیکەی، گرنگ ئەوە تو ژ خۆ ڕازی بی و ئەڤە بەسە.",
-            "هندەک جار دوورکەفتنا ژ خەلکی، مەزنترین دیارییە تو ددەیه‌ گیانێ خۆ.",
-            "تو گەلەک ژ هندێ بهاتری کو دەمێ خۆ بۆ کەسێن بێ مفا تەرخان بکەی.",
-            "تشتێ هەر گرنگ ل ڤێ جیهانێ، ئارامیا مێشکێ تە یە؛ هەر تشتێ وی تێک بدەت، ژێ دوور بکەڤە.",
-            "کەسێن نەرێنی تنێ دڤێن هێزا تە ببڕن؛ نەهێلە ئارامیا ڕۆژا تە تێک بدەن.",
-            "هەر دەمێ تو هەول ددەی هەمی کەسی ڕازی بکەی، وی دەمی تو یێ خۆ ژ دەست ددەی.",
-            "دەمێ خۆ بۆ کەسێن بێ مفا تەرخان نەکە.",
-            "تشتێ هەرە خراب ئەوە تو ژیانا خۆ ب ڕازیکرنا خەلکی ڤە بۆرینی.",
-            "دوورکەفتنا ژ کەسێن نەرێنی، نیڤا سەرکەفتن و ئارامیا تە یە.",
-            "خەونێن تە ژ ڕایێن خەلکی گرانبەها ترن؛ لدووڤ دەنگێ دلێ خوە هەرە نەک بۆچونا خەلکی.",
-            "گۆتنا 'نەخێر' بۆ هەر ژینگەهەکا کو ڕەخنەیێن نەدرۆست ل تە بگرن و باوەرییا تە ب خۆ بشکینن.",
-            "دانانا سنورێن توند دگەل دەوروبەرێن نەرێنی بۆ هندێ ڕۆژا تە ب کەیف و بێ کێشە دەرباز ببێت."
+‎            "ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!",
+‎            "تو گەلەک ژ هندێ ب هێزتری تو دەستا ب داهێلی.",
+‎            "بخۆ بژی، نە بۆ ڕازیکرنا خەڵکی.",
+‎            "هەر نوکە دەست پێ بکە، چ جاران درەنگ نینە.",
+‎            "تو یا ب هێزی، باوەریێ ب شیانێن خۆ بینە.",
+‎            "ئەڤرۆ دەرفەتەکا نووی یە بۆ هندێ تو بگەهیە حەزێن خۆ.",
+‎            "خەونێن تە مەزنن، هەولدانێن خۆ ژی مەزنتر لێ بکە.",
+‎            "تو داهێنەرا ژیانا خۆیی، جوان ڕەنگ بکە.",
+‎            "هەر تشتەکێ ئەڤرۆ دکەی، سوبە دێ پێ کەیفخۆش بی.",
+‎            "تو ب تنێ دشێی ژیانا خۆ بگۆهۆڕی، دەست پێ بکە.",
+‎            "ئارام بە، خودێ دێ دەرگەهێن خێڕێ بۆ تە ڤەکەت.",
+‎            "پێنگاڤەکا بچووک باشترە ژ ڕاوەستانێ.",
+‎            "تو ژ هەژی باشترین تشتی د ژیانێ دا.",
+‎            "دەست ژ هیڤیێن خۆ بەرنەدە، تو کەسەک خودان شیانی.",
+‎            "ئەڤرۆ کار بکە، دا کو سوبە شانازیێ ب خۆ بەی.",
+‎            "ترسێ ژ دلێ خۆ دەر بێخە و بەرەف پێش هەرە.",
+‎            "ماندیبوونا ئەڤرۆ، دێ بیتە کەیفخۆشیا سوبەهی.",
+‎            "کەسەک نینە شوینا تە شەڕی بۆ خەونێن تە بکەت.",
+‎            "بڕیارێ بدە و چو جاران سستیێ تێدا نەکە.",
+‎            "هەر دەمەکێ تو تێدا دژی، دەمەکێ زێڕینە.",
+‎            "ژ دەستپێکرنا نوو نەترسە، ئەڤە دەرفەتا تە یە.",
+‎            "ئەڤرۆ یا پڕە ژ وزە و هێزێ، بکاربینە!",
+‎            "تو یا بڕیاردەری، چو هێز نەشێن تە ڕاگرن.",
+‎            "هەول بدە ئەڤرۆ باشتر بی ژ دوهی.",
+‎            "سەبر کلیلا هەر دەرگەهەکەکێ داخستی یە.",
+‎            "ب دڵسۆزی کار بکە، ئەنجام دێ تە مەندەهوش کەن.",
+‎            "تو یا تایبەتی، چو کەس وەک تە نین.",
+‎            "ژیان یا کورتە، ب کەیف و سەرکەفتن دەرباز بکە.",
+‎            "سەرکەفتن ناهێت، پێدڤییە تو بۆ بچی.",
+‎            "خودێ دگەل تە یە، چ خەمان نەخۆ.",
+‎            "تو خودان ئیرادەیەکا بهێزی.",
+‎            "بێدەنگ کار بکە، بهێڵە دەنگێ سەرکەفتنا تە بڵند ببیت.",
+‎            "هەر ڕۆژەکا نوو، شانسەک نوو یە بۆ سەرکەفتنێ.",
+‎            "پاشەڕۆژ یا وان کەسانە یێن باوەری ب خەونێن خۆ هەی.",
+‎            "ئارمانجێن مەزن قوربانیێن مەزن دڤێن.",
+‎            "تو ژ وێ ب هێزتری یا دیار دکەی.",
+‎            "ئارمانج بێ پلان، تنێ خەونەکە.",
+‎            "بچووکترین پێنگاڤ ژی باشترە ژ جهەکێ دیار.",
+‎            "کەسێ نەکە خودانێ بریارێن خۆ؛ ژیانا تە یا تە یە و کەس ماف نینە تێک بدەت.",
+‎            "تو نە مەجبووری کەسەکێ ژ خۆ ڕازیکەی، گرنگ ئەوە تو ژ خۆ ڕازی بی و ئەڤە بەسە.",
+‎            "هندەک جار دوورکەفتنا ژ خەلکی، مەزنترین دیارییە تو ددەیه‌ گیانێ خۆ.",
+‎            "تو گەلەک ژ هندێ بهاتری کو دەمێ خۆ بۆ کەسێن بێ مفا تەرخان بکەی.",
+‎            "تشتێ هەر گرنگ ل ڤێ جیهانێ، ئارامیا مێشکێ تە یە؛ هەر تشتێ وی تێک بدەت، ژێ دوور بکەڤە.",
+‎            "کەسێن نەرێنی تنێ دڤێن هێزا تە ببڕن؛ نەهێلە ئارامیا ڕۆژا تە تێک بدەن.",
+‎            "هەر دەمێ تو هەول ددەی هەمی کەسی ڕازی بکەی، وی دەمی تو یێ خۆ ژ دەست ددەی.",
+‎            "دەمێ خۆ بۆ کەسێن بێ مفا تەرخان نەکە.",
+‎            "تشتێ هەرە خراب ئەوە تو ژیانا خۆ ب ڕازیکرنا خەلکی ڤە بۆرینی.",
+‎            "دوورکەفتنا ژ کەسێن نەرێنی، نیڤا سەرکەفتن و ئارامیا تە یە.",
+‎            "خەونێن تە ژ ڕایێن خەلکی گرانبەها ترن؛ لدووڤ دەنگێ دلێ خوە هەرە نەک بۆچونا خەلکی.",
+‎            "گۆتنا 'نەخێر' بۆ هەر ژینگەهەکا کو ڕەخنەیێن نەدرۆست ل تە بگرن و باوەرییا تە ب خۆ بشکینن.",
+‎            "دانانا سنورێن توند دگەل دەوروبەرێن نەرێنی بۆ هندێ ڕۆژا تە ب کەیف و بێ کێشە دەرباز ببێت."
         ];
 
         let currentQuote = quotes[0];
@@ -420,7 +421,7 @@
                 listContainer.innerHTML = '<p class="text-center text-slate-500 py-4">هێشتا چ گۆتن نینن د دڵخوازێن تە دا.</p>';
             } else {
                 favorites.forEach((q, index) => {
-                    listContainer.innerHTML += `<div class="bg-slate-950/40 light:bg-slate-100 p-3 rounded-xl border border-slate-800 light:border-slate-300 flex justify-between items-center gap-2">
+                    listContainer.innerHTML += `<div class="bg-slate-950/40 dark:bg-slate-950/40 bg-slate-100 p-3 rounded-xl border border-slate-800 dark:border-slate-800 border-slate-300 flex justify-between items-center gap-2">
                         <span>"${q}"</span>
                         <button onclick="removeFav(${index})" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-trash"></i></button>
                     </div>`;
@@ -456,20 +457,20 @@
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => {
                 el.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-md');
-                el.classList.add('bg-slate-800', 'text-slate-300', 'dark:bg-slate-800', 'dark:text-slate-300', 'light:bg-slate-200', 'light:text-slate-700');
+                el.classList.add('bg-slate-800', 'text-slate-300', 'dark:bg-slate-800', 'dark:text-slate-300', 'bg-slate-200', 'text-slate-700');
             });
 
             if (tabName === 'quotes') {
                 document.getElementById('tabQuotes').classList.remove('hidden');
-                document.getElementById('btnQuotes').classList.remove('bg-slate-800', 'text-slate-300', 'light:bg-slate-200', 'light:text-slate-700');
+                document.getElementById('btnQuotes').classList.remove('bg-slate-800', 'text-slate-300', 'bg-slate-200', 'text-slate-700');
                 document.getElementById('btnQuotes').classList.add('bg-emerald-500', 'text-slate-950', 'shadow-md');
             } else if (tabName === 'secrets') {
                 document.getElementById('tabSecrets').classList.remove('hidden');
-                document.getElementById('btnSecrets').classList.remove('bg-slate-800', 'text-slate-300', 'light:bg-slate-200', 'light:text-slate-700');
+                document.getElementById('btnSecrets').classList.remove('bg-slate-800', 'text-slate-300', 'bg-slate-200', 'text-slate-700');
                 document.getElementById('btnSecrets').classList.add('bg-emerald-500', 'text-slate-950', 'shadow-md');
             } else if (tabName === 'planner') {
                 document.getElementById('tabPlanner').classList.remove('hidden');
-                document.getElementById('btnPlanner').classList.remove('bg-slate-800', 'text-slate-300', 'light:bg-slate-200', 'light:text-slate-700');
+                document.getElementById('btnPlanner').classList.remove('bg-slate-800', 'text-slate-300', 'bg-slate-200', 'text-slate-700');
                 document.getElementById('btnPlanner').classList.add('bg-emerald-500', 'text-slate-950', 'shadow-md');
             }
         }
@@ -481,11 +482,9 @@
         themeToggleBtn.addEventListener('click', () => {
             if (htmlElement.classList.contains('dark')) {
                 htmlElement.classList.remove('dark');
-                htmlElement.classList.add('light');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             } else {
-                htmlElement.classList.remove('light');
                 htmlElement.classList.add('dark');
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
@@ -494,4 +493,3 @@
     </script>
 </body>
 </html>
-
