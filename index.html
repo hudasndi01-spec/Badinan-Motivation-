@@ -49,7 +49,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .logo-area { 
@@ -72,12 +72,26 @@
             box-shadow: 0 0 10px var(--accent-glow);
         }
 
+        /* بەشێ Streak & Favorites Bar */
+        .stats-badge {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            border: 1px solid var(--card-border);
+            font-weight: 600;
+        }
+
         .clock-container {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         #clock { 
-            font-size: 32px; 
+            font-size: 28px; 
             font-weight: 800; 
             color: var(--accent-color); 
             margin: 0;
@@ -85,82 +99,87 @@
         }
 
         #day-period {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
-            margin-top: 4px;
+            margin-top: 2px;
             font-weight: 600;
         }
 
         .quote-box {
-            min-height: 100px;
+            min-height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            padding: 0 10px;
+            margin-bottom: 15px;
+            padding: 0 5px;
+            position: relative;
         }
 
         p#main-text { 
             color: var(--text-main); 
-            font-size: 16px; 
+            font-size: 15px; 
             line-height: 1.6; 
             margin: 0;
             font-weight: 600;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
         }
 
         .main-btn { 
             background-color: var(--accent-color); 
             color: #0a192f; 
             border: none; 
-            padding: 14px; 
-            border-radius: 14px; 
+            padding: 12px; 
+            border-radius: 12px; 
             cursor: pointer; 
-            width: 100%; 
-            font-size: 15px;
+            flex: 2; 
+            font-size: 14px;
             font-weight: 700;
             box-shadow: 0 4px 14px var(--accent-glow);
             transition: all 0.2s;
-            box-sizing: border-box;
-            margin-bottom: 10px;
         }
 
-        .music-btn {
-            background: rgba(255, 255, 255, 0.08);
+        .fav-btn {
+            background: rgba(255, 255, 255, 0.1);
             color: var(--text-main);
             border: 1px solid var(--card-border);
-            padding: 10px;
+            padding: 12px;
             border-radius: 12px;
             cursor: pointer;
-            width: 100%;
+            flex: 1;
             font-size: 13px;
             font-weight: 600;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-sizing: border-box;
+        }
+
+        .fav-btn.active {
+            background: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
         }
 
         .notification-setting {
-            margin-top: 15px;
+            margin-top: 12px;
             background: rgba(0, 0, 0, 0.15);
-            padding: 14px;
-            border-radius: 14px;
+            padding: 12px;
+            border-radius: 12px;
             border: 1px solid var(--card-border);
             text-align: right;
         }
 
         .noti-btn {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border-radius: 10px;
             border: none;
             background: #2ecc71;
             color: white;
             font-weight: 700;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
             text-decoration: none;
             display: block;
             box-sizing: border-box;
@@ -168,20 +187,20 @@
         }
 
         .notes-section {
-            margin-top: 15px;
+            margin-top: 12px;
             background: rgba(0, 0, 0, 0.15);
             border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 12px;
+            border-radius: 12px;
+            padding: 10px;
             text-align: right;
         }
 
         .premium { 
             background: var(--premium-bg); 
             border: 1px solid var(--premium-border); 
-            padding: 15px; 
-            border-radius: 16px; 
-            margin-top: 15px; 
+            padding: 12px; 
+            border-radius: 14px; 
+            margin-top: 12px; 
             text-align: right;
             cursor: pointer;
         }
@@ -190,25 +209,25 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 13px;
+            font-size: 12px;
             color: var(--premium-text);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .premium ul {
             margin: 0;
             padding-right: 18px;
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-main);
-            line-height: 1.7;
+            line-height: 1.6;
         }
         .premium ul li {
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             list-style-type: square;
         }
 
         .footer-credits { 
-            margin-top: 20px; 
+            margin-top: 15px; 
             font-size: 11px;
             color: var(--text-muted);
             line-height: 1.4;
@@ -225,6 +244,12 @@
             </div>
         </div>
 
+        <!-- بەشێ هژمارکرنا بەردەوامیا ڕۆژانە و دلخوازان -->
+        <div class="stats-badge">
+            <span id="streak-counter">🔥 رۆژێن بەردەوام: 1 ڕۆژ</span>
+            <span id="fav-counter" style="cursor: pointer;" onclick="toggleFavView()">⭐ دلخواز (0)</span>
+        </div>
+
         <div class="clock-container">
             <div id="clock">00:00:00</div>
             <div id="day-period">بارکردن...</div>
@@ -234,41 +259,28 @@
             <p id="main-text">ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!</p>
         </div>
 
-        <button class="main-btn" onclick="getNewQuote()">پەیڤێن هاندەر</button>
+        <div class="btn-group">
+            <button class="main-btn" onclick="getNewQuote()">پەیڤێن هاندەر</button>
+            <button class="fav-btn" id="favToggleBtn" onclick="toggleCurrentFavorite()">⭐ لایڤ</button>
+        </div>
         
-        <!-- بەشێ مۆزیکا ئارام (Option) -->
-        <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">
-            <span>🎵 ڤەکرنا مۆزیکا ئارام (Calm Music)</span>
-        </button>
-        <audio id="bgMusic" loop>
-            <source src="https://actions.google.com/sounds/v1/ambiences/rain_heavy.ogg" type="audio/ogg">
-        </audio>
-
-        <!-- بەشێ نۆفیکەیشن بۆ سێتینگا فۆنێ -->
         <div class="notification-setting">
-            <label style="display: block; font-size: 12px; color: var(--text-main); margin-bottom: 8px; font-weight: 600;">🔔 ڤەکرنا ئاگەهداریێن سۆشیال و نامان:</label>
+            <label style="display: block; font-size: 11px; color: var(--text-main); margin-bottom: 6px; font-weight: 600;">🔔 ئاگەهدارکرنا بەردەوام:</label>
             <a href="app-settings:" class="noti-btn" onclick="openSettingsGuide(event)">راستەوخۆ ڤەکە بۆ سێتینگا نۆفیکەیشنێ</a>
         </div>
 
         <div class="notes-section">
-            <h3 style="color: var(--accent-color); font-size: 14px; margin: 0 0 4px 0;">✉️ پشکا نامێن هێلای</h3>
-            <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">ناما خۆ لێرە بهێلە و دیزاین بکە!</p>
-            
-            <textarea id="user-note-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 65px; padding: 8px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-main); font-size: 13px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 8px;"></textarea>
-            
-            <div style="display: flex; gap: 8px; margin-bottom: 10px;">
-                <select id="note-color" style="flex: 1; padding: 6px; border-radius: 8px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); font-size: 12px; outline: none;">
+            <h3 style="color: var(--accent-color); font-size: 13px; margin: 0 0 4px 0;">✉️ پشکا نامێن هێلای (تایبەت ب تە)</h3>
+            <textarea id="user-note-text" placeholder="ناما خۆ لێرە بنڤیسە..." style="width: 100%; height: 50px; padding: 6px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-main); font-size: 12px; box-sizing: border-box; resize: none; outline: none; margin-bottom: 6px;"></textarea>
+            <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                <select id="note-color" style="flex: 1; padding: 4px; border-radius: 6px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); font-size: 11px; outline: none;">
                     <option value="#64ffda">🟢 ڕەنگێ تیشک</option>
                     <option value="#fde047">🟡 ڕەنگێ زێری</option>
                     <option value="#ff6b6b">🔴 ڕەنگێ سۆر</option>
-                    <option value="#a29bfe">🟣 ڕەنگێ مۆرتک</option>
                 </select>
-                <button onclick="saveUserNote()" class="noti-btn" style="flex: 1; margin: 0; padding: 6px; font-size: 12px; background: var(--accent-color); color: #0a192f;">✉️ بنێرە</button>
+                <button onclick="saveUserNote()" class="noti-btn" style="flex: 1; margin: 0; padding: 4px; font-size: 11px; background: var(--accent-color); color: #0a192f;">بنێرە</button>
             </div>
-
-            <div id="notes-container" style="max-height: 140px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
-                <!-- نامە لێرە دێ هێنە نیشاندان -->
-            </div>
+            <div id="notes-container" style="max-height: 100px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;"></div>
         </div>
 
         <div class="premium" onclick="alert('ئەڤ بەشە د جێبەجێکرنێ دا یە')">
@@ -290,28 +302,45 @@
     </div>
 
     <script>
+        // کاتژمێر
         function updateClock() {
             const now = new Date();
             const hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            
             document.getElementById('clock').textContent = `${String(hours).padStart(2, '0')}:${minutes}:${seconds}`;
             
             let period = "";
-            if (hours >= 5 && hours < 12) {
-                period = "🌅 دەمێ سپێدەهیێ یە";
-            } else if (hours >= 12 && hours < 16) {
-                period = "☀️ دەمێ نیڤڕۆیە";
-            } else if (hours >= 16 && hours < 19) {
-                period = "🌇 دەمێ ئێڤاری یە";
-            } else {
-                period = "🌙 دەمێ شەڤێ یە";
-            }
+            if (hours >= 5 && hours < 12) period = "🌅 دەمێ سپێدەهیێ یە";
+            else if (hours >= 12 && hours < 16) period = "☀️ دەمێ نیڤڕۆیە";
+            else if (hours >= 16 && hours < 19) period = "🌇 دەمێ ئێڤاری یە";
+            else period = "🌙 دەمێ شەڤێ یە";
             document.getElementById('day-period').textContent = period;
         }
         setInterval(updateClock, 1000);
         updateClock();
+
+        // سیستەمێ Streak (ژمارەیا ڕۆژان) بێ پارە و بەلاش
+        function checkStreak() {
+            let lastVisit = localStorage.getItem('badinan_last_visit');
+            let streak = parseInt(localStorage.getItem('badinan_streak') || '1');
+            let today = new Date().toDateString();
+
+            if (lastVisit !== today) {
+                if (lastVisit) {
+                    let lastDate = new Date(lastVisit);
+                    let currentDate = new Date(today);
+                    let diffTime = Math.abs(currentDate - lastDate);
+                    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    if (diffDays === 1) streak += 1;
+                    else if (diffDays > 1) streak = 1;
+                }
+                localStorage.setItem('badinan_last_visit', today);
+                localStorage.setItem('badinan_streak', streak);
+            }
+            document.getElementById('streak-counter').textContent = `🔥 رۆژێن بەردەوام: ${streak} ڕۆژ`;
+        }
+        checkStreak();
 
         const quotes = [
             "ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!",
@@ -354,7 +383,6 @@
             "بچووکترین پێنگاڤ ژی باشترە ژ جهەکێ دیار.",
             "کەسێ نەکە خودانێ بریارێن خۆ؛ ژیانا تە یا تە یە و کەس ماف نینە تێک بدەت.",
             "تو نە مەجبووری کەسەکێ ژ خۆ ڕازیکەی، گرنگ ئەوە تو ژ خۆ ڕازی بی و ئەڤە بەسە.",
-            "کەسێ نەکە خودانێ بریارێن خۆ؛ ژیانا تە یا تە یە و کەس ماف نینە تێک بدەت.",
             "هندەک جار دوورکەفتنا ژ خەلکی، مەزنترین دیارییە تو ددەیه‌ گیانێ خۆ.",
             "تو گەلەک ژ هندێ بهاتری کو دەمێ خۆ بۆ کەسێن بێ مفا تەرخان بکەی.",
             "تشتێ هەر گرنگ ل ڤێ جیهانێ، ئارامیا مێشکێ تە یە؛ هەر تشتێ وی تێک بدەت، ژێ دوور بکەڤە.",
@@ -367,78 +395,110 @@
             "گۆتنا \"نەخێر\" بۆ هەر ژینگەهەکا کو ڕەخنەیێن نەدرۆست ل تە بگرن و باوەرییا خۆ ژ دەست نەدە."
         ];
 
+        let currentQuote = quotes[0];
+
         function getNewQuote() {
-            const textElement = document.getElementById('main-text');
             const randomIndex = Math.floor(Math.random() * quotes.length);
-            textElement.textContent = quotes[randomIndex];
+            currentQuote = quotes[randomIndex];
+            document.getElementById('main-text').textContent = currentQuote;
+            updateFavButtonState();
         }
 
-        function toggleMusic() {
-            const music = document.getElementById('bgMusic');
-            const btn = document.getElementById('musicToggleBtn');
-            if (music.paused) {
-                music.play();
-                btn.innerHTML = '⏸️ راگرتنا مۆزیکێ (Mute)';
-                btn.style.background = 'rgba(100, 255, 218, 0.15)';
+        // سیستەمێ Favorites (دلخواز) بێ پارە
+        function getFavorites() {
+            return JSON.parse(localStorage.getItem('badinan_favorites') || '[]');
+        }
+
+        function toggleCurrentFavorite() {
+            let favs = getFavorites();
+            let index = favs.indexOf(currentQuote);
+            if (index > -1) {
+                favs.splice(index, 1);
             } else {
-                music.pause();
-                btn.innerHTML = '🎵 ڤەکرنا مۆزیکا ئارام (Calm Music)';
-                btn.style.background = 'rgba(255, 255, 255, 0.08)';
+                favs.push(currentQuote);
             }
+            localStorage.setItem('badinan_favorites', JSON.stringify(favs));
+            updateFavButtonState();
+            updateFavCounter();
+        }
+
+        function updateFavButtonState() {
+            let favs = getFavorites();
+            let btn = document.getElementById('favToggleBtn');
+            if (favs.includes(currentQuote)) {
+                btn.classList.add('active');
+                btn.textContent = '❤️ دلخوازە';
+            } else {
+                btn.classList.remove('active');
+                btn.textContent = '⭐ لایڤ';
+            }
+        }
+
+        function updateFavCounter() {
+            let favs = getFavorites();
+            document.getElementById('fav-counter').textContent = `⭐ دلخواز (${favs.length})`;
+        }
+        updateFavCounter();
+        updateFavButtonState();
+
+        function toggleFavView() {
+            let favs = getFavorites();
+            if (favs.length === 0) {
+                alert("هێشتا چ پەیڤ نینە د دلخوازێن تە دا!");
+                return;
+            }
+            let randomFav = favs[Math.floor(Math.random() * favs.length)];
+            currentQuote = randomFav;
+            document.getElementById('main-text').textContent = currentQuote;
+            updateFavButtonState();
         }
 
         function openSettingsGuide(e) {
             alert("بۆ چالاککرنا نۆفیکەیشنان، تکایە بچە سێتینگا فۆنا خۆ (Settings) > Notifications و مۆڵەتێ بدە ڤی سایتی!");
         }
 
-        window.addEventListener('DOMContentLoaded', loadNotes);
+        // Offline Mode (کارکرنا بێ ئینترنت)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:text/javascript,' + encodeURIComponent(`
+                    self.addEventListener('install', e => e.waitUntil(self.skipWaiting()));
+                    self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
+                    self.addEventListener('fetch', e => {});
+                `)).catch(() => {});
+            });
+        }
 
+        // نۆتێن تایبەت
+        window.addEventListener('DOMContentLoaded', loadNotes);
         function saveUserNote() {
             const text = document.getElementById('user-note-text').value.trim();
             const color = document.getElementById('note-color').value;
-            
-            if (!text) {
-                alert("هیڤیە نامەیەکێ بنڤیسە!");
-                return;
-            }
-
-            const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
+            if (!text) return alert("هیڤیە نامەیەکێ بنڤیسە!");
+            let notes = JSON.parse(localStorage.getItem('badinan_private_notes') || '[]');
             notes.unshift({ text, color, date: new Date().toLocaleDateString() });
-            
-            localStorage.setItem('badinan_notes', JSON.stringify(notes));
+            localStorage.setItem('badinan_private_notes', JSON.stringify(notes));
             document.getElementById('user-note-text').value = '';
             loadNotes();
         }
-
         function loadNotes() {
             const container = document.getElementById('notes-container');
             container.innerHTML = '';
-            const notes = JSON.parse(localStorage.getItem('badinan_notes') || '[]');
-
+            let notes = JSON.parse(localStorage.getItem('badinan_private_notes') || '[]');
             if (notes.length === 0) {
-                container.innerHTML = '<p style="font-size: 11px; color: var(--text-muted); text-align: center; margin: 4px 0;">هێشتا چ نامە نینن، یەکەم کەس بی!</p>';
+                container.innerHTML = '<p style="font-size: 10px; color: var(--text-muted); text-align: center; margin: 2px 0;">هێشتا چ نامە نینن.</p>';
                 return;
             }
-
             notes.forEach(note => {
                 const div = document.createElement('div');
                 div.style.background = 'rgba(255, 255, 255, 0.04)';
                 div.style.border = '1px solid rgba(255, 255, 255, 0.08)';
                 div.style.borderRight = `4px solid ${note.color}`;
-                div.style.padding = '10px 12px';
-                div.style.borderRadius = '12px';
-                div.style.fontSize = '13px';
+                div.style.padding = '6px 8px';
+                div.style.borderRadius = '8px';
+                div.style.fontSize = '12px';
                 div.style.color = 'var(--text-main)';
                 div.style.textAlign = 'right';
-                div.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                
-                div.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                        <span style="font-size: 10px; color: ${note.color}; font-weight: bold;">✉️ ناما هێلای</span>
-                        <span style="font-size: 9px; color: var(--text-muted);">${note.date}</span>
-                    </div>
-                    <p style="margin: 0; line-height: 1.4; word-break: break-word;">${note.text}</p>
-                `;
+                div.innerHTML = `<p style="margin: 0; line-height: 1.3;">${note.text}</p>`;
                 container.appendChild(div);
             });
         }
