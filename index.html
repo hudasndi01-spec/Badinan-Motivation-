@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badinan Motivation</title>
+    <title>Dodocare</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -23,7 +23,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap');
         body { font-family: 'Vazirmatn', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
         
-        /* Dark / Light Themes */
         body.dark { background-color: #0b0f19; color: #f1f5f9; }
         body.light { background-color: #f8fafc; color: #1e293b; }
 
@@ -35,20 +34,19 @@
 <body class="dark min-h-screen flex flex-col items-center justify-between p-4 selection:bg-purple-500 selection:text-white">
 
     <!-- سەرێ سایت -->
-    <header class="max-w-md w-full flex items-center justify-between glass-card p-4 rounded-2xl shadow-xl mb-4">
+    <header class="max-w-md w-full flex items-center justify-between glass-card p-4 rounded-2xl shadow-xl mb-4 border-t-4 border-indigo-500">
         <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-lg">BM</div>
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-lg">DC</div>
             <div>
-                <h1 class="text-xs font-bold tracking-wide">Badinan Motivation</h1>
+                <h1 class="text-xs font-bold tracking-wide">Dodocare</h1>
                 <p class="text-[10px] opacity-70">ژینگەها تەیا ئارام</p>
             </div>
         </div>
         <div class="flex items-center gap-2">
-            <!-- دوگمەیا گۆهۆڕینا ڕەنگی (Dark / Light Mode) -->
             <button onclick="toggleTheme()" class="w-8 h-8 rounded-xl glass-card flex items-center justify-center text-amber-400 hover:scale-105 transition shadow-sm" title="گۆهۆڕینا ڕەنگی">
                 <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
             </button>
-            <div class="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-xl glass-card shadow-inner opacity-90">
+            <div class="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-xl glass-card shadow-inner opacity-95">
                 <i class="fa-solid fa-fire text-amber-400"></i> <span id="streakCount">1</span> ڕۆژ Streak
             </div>
         </div>
@@ -57,9 +55,9 @@
     <!-- ناوەندا سەرەکی -->
     <main class="max-w-md w-full space-y-4">
         
-        <!-- مینیویا سێکتەران (پێنج بەش) -->
+        <!-- مینیویا سێکتەران -->
         <div class="grid grid-cols-5 gap-1 glass-card p-1.5 rounded-2xl">
-            <button onclick="switchTab('quotes')" id="btnQuotes" class="tab-btn py-2 rounded-xl text-[10px] font-bold transition flex flex-col items-center gap-1 bg-slate-800 text-white shadow-md">
+            <button onclick="switchTab('quotes')" id="btnQuotes" class="tab-btn py-2 rounded-xl text-[10px] font-bold transition flex flex-col items-center gap-1 bg-amber-500 text-slate-950 shadow-md">
                 <i class="fa-solid fa-bolt"></i> گۆتن
             </button>
             <button onclick="switchTab('azkar')" id="btnAzkar" class="tab-btn py-2 rounded-xl text-[10px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100">
@@ -69,28 +67,28 @@
                 <i class="fa-solid fa-list-check"></i> رۆتین
             </button>
             <button onclick="switchTab('selfcare')" id="btnSelfCare" class="tab-btn py-2 rounded-xl text-[10px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100">
-                <i class="fa-solid fa-spa"></i> خۆپارێزی
+                <i class="fa-solid fa-shield-heart"></i> سەرنج
             </button>
-            <button onclick="switchTab('momo')" id="btnMomo" class="tab-btn py-2 rounded-xl text-[10px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100">
-                <i class="fa-solid fa-cat"></i> Momo
+            <button onclick="switchTab('dodo')" id="btnDodo" class="tab-btn py-2 rounded-xl text-[10px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100">
+                <i class="fa-solid fa-cat"></i> Dodo
             </button>
         </div>
 
-        <!-- بەشێ ١: گۆتنێن هاندەر -->
+        <!-- بەشێ ١: گۆتنێن هاندەر (ڕەنگێ ئامبەر / زەری) -->
         <div id="tabQuotes" class="tab-content space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 text-center">
+            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 text-center border-t-4 border-amber-500">
                 <div class="glass-card rounded-2xl p-3">
                     <div id="liveClock" class="text-xl font-extrabold tracking-wider">00:00:00</div>
                     <p id="clockMessage" class="text-[11px] opacity-70 mt-1">ئەڤرۆ ڕۆژا تە یە، پڕ هێز و ئارامی بیت! 🌅</p>
                 </div>
 
                 <div class="glass-card rounded-2xl p-6 min-h-[140px] flex flex-col justify-center items-center relative shadow-inner">
-                    <span class="absolute top-3 right-3 text-[10px] px-2.5 py-0.5 rounded-full glass-card">گۆتنا هاندەر</span>
+                    <span class="absolute top-3 right-3 text-[10px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 font-bold">گۆتنا هاندەر</span>
                     <p id="quoteText" class="text-xs font-medium leading-relaxed mt-2">"ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!"</p>
                 </div>
 
                 <div class="flex gap-2">
-                    <button id="newQuoteBtn" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
+                    <button id="newQuoteBtn" class="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
                         <i class="fa-solid fa-shuffle"></i> گۆتنا نوو
                     </button>
                     <button id="saveFavBtn" class="glass-card hover:opacity-80 text-amber-400 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-1 text-xs shadow-md">
@@ -104,14 +102,14 @@
             </div>
         </div>
 
-        <!-- بەشێ ٢: زکرێن ڕۆژانە -->
+        <!-- بەشێ ٢: زکرێن ڕۆژانە (ڕەنگێ کهووک / شین) -->
         <div id="tabAzkar" class="tab-content hidden space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 max-h-[70vh] overflow-y-auto">
-                <h2 class="text-sm font-bold flex items-center gap-2 border-b border-white/10 pb-2">
-                    <i class="fa-solid fa-book-quran opacity-70"></i> زکرێن ڕۆژانە
+            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 max-h-[70vh] overflow-y-auto border-t-4 border-blue-500">
+                <h2 class="text-sm font-bold flex items-center gap-2 border-b border-white/10 pb-2 text-blue-400">
+                    <i class="fa-solid fa-book-quran"></i> زکرێن ڕۆژانە
                 </h2>
                 <div class="grid grid-cols-4 gap-1 glass-card p-1 rounded-xl text-[11px]">
-                    <button onclick="renderAzkar('m')" id="azkarBtn_m" class="azkar-nav-btn bg-slate-800 text-white font-bold py-1.5 rounded-lg">سپێدە</button>
+                    <button onclick="renderAzkar('m')" id="azkarBtn_m" class="azkar-nav-btn bg-blue-600 text-white font-bold py-1.5 rounded-lg">سپێدە</button>
                     <button onclick="renderAzkar('n')" id="azkarBtn_n" class="azkar-nav-btn opacity-70 font-bold py-1.5 rounded-lg">نیڤرو</button>
                     <button onclick="renderAzkar('e')" id="azkarBtn_e" class="azkar-nav-btn opacity-70 font-bold py-1.5 rounded-lg">ئێڤاری</button>
                     <button onclick="renderAzkar('ni')" id="azkarBtn_ni" class="azkar-nav-btn opacity-70 font-bold py-1.5 rounded-lg">شەڤ</button>
@@ -120,16 +118,16 @@
             </div>
         </div>
 
-        <!-- بەشێ ٣: رۆتین و خشتە -->
+        <!-- بەشێ ٣: رۆتین و خشتە (پلانا ئێڤاری و شەڤێ ژێک جودا - ڕەنگێ سەوز) -->
         <div id="tabRoutine" class="tab-content hidden space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 max-h-[70vh] overflow-y-auto">
-                <h2 class="text-sm font-bold flex items-center gap-2 border-b border-white/10 pb-2">
-                    <i class="fa-solid fa-list-check opacity-70"></i> رۆتین و خشتەیا ڕۆژانە
+            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 max-h-[70vh] overflow-y-auto border-t-4 border-emerald-500">
+                <h2 class="text-sm font-bold flex items-center gap-2 border-b border-white/10 pb-2 text-emerald-400">
+                    <i class="fa-solid fa-list-check"></i> رۆتین و خشتەیا ڕۆژانە
                 </h2>
                 <div class="space-y-3 text-xs">
                     <div class="glass-card p-3.5 rounded-2xl space-y-2">
                         <div class="flex items-center justify-between">
-                            <span class="font-bold"><i class="fa-solid fa-sun opacity-70"></i> پلانا سپێدێ</span>
+                            <span class="font-bold"><i class="fa-solid fa-sun text-amber-400"></i> پلانا سپێدێ</span>
                             <button onclick="toggleCheck('morning')" id="checkBtn_morning" class="w-7 h-7 rounded-xl glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check"></i></button>
                         </div>
                         <input type="text" id="planMorning" placeholder="پلانا خۆ لێرە بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
@@ -137,7 +135,7 @@
 
                     <div class="glass-card p-3.5 rounded-2xl space-y-2">
                         <div class="flex items-center justify-between">
-                            <span class="font-bold"><i class="fa-solid fa-cloud-sun opacity-70"></i> پلانا نیڤرۆ</span>
+                            <span class="font-bold"><i class="fa-solid fa-cloud-sun text-orange-400"></i> پلانا نیڤرۆ</span>
                             <button onclick="toggleCheck('noon')" id="checkBtn_noon" class="w-7 h-7 rounded-xl glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check"></i></button>
                         </div>
                         <input type="text" id="planNoon" placeholder="کارێن نیڤرۆ لێرە بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
@@ -145,73 +143,90 @@
 
                     <div class="glass-card p-3.5 rounded-2xl space-y-2">
                         <div class="flex items-center justify-between">
-                            <span class="font-bold"><i class="fa-solid fa-moon opacity-70"></i> پلانا ئێڤاری و شەڤ</span>
+                            <span class="font-bold"><i class="fa-solid fa-cloud-moon text-indigo-400"></i> پلانا ئێڤاری</span>
+                            <button onclick="toggleCheck('evening')" id="checkBtn_evening" class="w-7 h-7 rounded-xl glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check"></i></button>
+                        </div>
+                        <input type="text" id="planEvening" placeholder="کارێن ئێڤاری لێرە بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
+                    </div>
+
+                    <div class="glass-card p-3.5 rounded-2xl space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold"><i class="fa-solid fa-moon text-purple-400"></i> پلانا شەڤ</span>
                             <button onclick="toggleCheck('night')" id="checkBtn_night" class="w-7 h-7 rounded-xl glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check"></i></button>
                         </div>
-                        <input type="text" id="planNight" placeholder="کارێن ئێڤاری لێرە بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
+                        <input type="text" id="planNight" placeholder="کارێن شەڤێ لێرە بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
                     </div>
                 </div>
-                <button onclick="saveMyPlanner()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-lg">پاشەکەفتکرنا خشتەی</button>
+                <button onclick="saveMyPlanner()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-lg">پاشەکەفتکرنا خشتەی</button>
             </div>
         </div>
 
-        <!-- بەشێ ٤: گرنگیدان ب خۆ -->
+        <!-- بەشێ ٤: سەرنج (خۆپارێزی پێشووی پڕکرن ب خالێن گرنگ - ڕەنگێ پەمەی) -->
         <div id="tabSelfCare" class="tab-content hidden space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-3 text-xs">
-                <h2 class="text-sm font-bold flex items-center gap-2 border-b border-white/10 pb-2">
-                    <i class="fa-solid fa-spa opacity-70"></i> چاڤدێریا خۆپارێزیێ
+            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-3 text-xs border-t-4 border-pink-500">
+                <h2 class="text-sm font-bold flex items-center gap-2 border-b border-white/10 pb-2 text-pink-400">
+                    <i class="fa-solid fa-shield-heart"></i> سەرنج و رێنماکێن خۆپارێزیێ
                 </h2>
                 
                 <div class="glass-card p-3 rounded-2xl flex items-center justify-between">
                     <div class="flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-xl glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-glass-water"></i></div>
-                        <span class="font-bold">ڤەخارنا ئاڤێ ب ڕێکوپێکی</span>
+                        <div class="w-8 h-8 rounded-xl glass-card flex items-center justify-center text-pink-400"><i class="fa-solid fa-brain"></i></div>
+                        <span class="font-bold">ئارامیا مێشکێ من ژ هەر تشتەکێ گرنگترە.</span>
                     </div>
-                    <button onclick="toggleSC('water')" id="sc_water" class="w-6 h-6 rounded-lg glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check text-[10px]"></i></button>
+                    <button onclick="toggleSC('c1')" id="sc_c1" class="w-6 h-6 rounded-lg glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check text-[10px]"></i></button>
                 </div>
 
                 <div class="glass-card p-3 rounded-2xl flex items-center justify-between">
                     <div class="flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-xl glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-mug-hot"></i></div>
-                        <span class="font-bold">چێژوەرگرتن ژ قهوەیا خۆش</span>
+                        <div class="w-8 h-8 rounded-xl glass-card flex items-center justify-center text-pink-400"><i class="fa-solid fa-user-shield"></i></div>
+                        <span class="font-bold">سنووردانان دگەل دەوروبەرێن نەرێنی پێتڤیە.</span>
                     </div>
-                    <button onclick="toggleSC('coffee')" id="sc_coffee" class="w-6 h-6 rounded-lg glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check text-[10px]"></i></button>
+                    <button onclick="toggleSC('c2')" id="sc_c2" class="w-6 h-6 rounded-lg glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check text-[10px]"></i></button>
                 </div>
 
                 <div class="glass-card p-3 rounded-2xl flex items-center justify-between">
                     <div class="flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-xl glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-person-walking"></i></div>
-                        <span class="font-bold">پیاسەکرن و گوهۆڕینا هەوێ</span>
+                        <div class="w-8 h-8 rounded-xl glass-card flex items-center justify-center text-pink-400"><i class="fa-solid fa-mug-hot"></i></div>
+                        <span class="font-bold">وەرگرتنا دەمی بۆ قهوەیا خۆ و پشوو دانێ.</span>
                     </div>
-                    <button onclick="toggleSC('walk')" id="sc_walk" class="w-6 h-6 rounded-lg glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check text-[10px]"></i></button>
+                    <button onclick="toggleSC('c3')" id="sc_c3" class="w-6 h-6 rounded-lg glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check text-[10px]"></i></button>
+                </div>
+
+                <div class="glass-card p-3 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl glass-card flex items-center justify-center text-pink-400"><i class="fa-solid fa-person-walking"></i></div>
+                        <span class="font-bold">پیاسەکرن بۆ گۆڕینا هەوا مێشکی.</span>
+                    </div>
+                    <button onclick="toggleSC('c4')" id="sc_c4" class="w-6 h-6 rounded-lg glass-card flex items-center justify-center opacity-70"><i class="fa-solid fa-check text-[10px]"></i></button>
                 </div>
             </div>
         </div>
 
-        <!-- بەشێ ٥: Self-Care Pet Momo (بەشێ تایبەت) -->
-        <div id="tabMomo" class="tab-content hidden space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 text-center">
+        <!-- بەشێ ٥: Self-Care Pet Dodo (لگەل پێشوازی و پرسیارا سەرکەفتنێ - ڕەنگێ پرپڵ / مۆر) -->
+        <div id="tabDodo" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 text-center border-t-4 border-purple-500">
                 <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                    <h2 class="text-sm font-bold flex items-center gap-2">
-                        <i class="fa-solid fa-cat text-pink-400"></i> Self-Care Pet: Momo
+                    <h2 class="text-sm font-bold flex items-center gap-2 text-purple-400">
+                        <i class="fa-solid fa-cat"></i> Self-Care Pet: Dodo
                     </h2>
-                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-400 font-bold">ئاژەلێ ئارام</span>
+                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-bold">هەڤالێ ئارام</span>
                 </div>
 
                 <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center space-y-3 relative overflow-hidden">
-                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center text-white text-3xl shadow-xl animate-bounce">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white text-3xl shadow-xl animate-bounce">
                         🐱
                     </div>
-                    <h3 class="font-bold text-sm">مۆمۆ (Momo) هەڤالێ تە یێ پشوو دانێ</h3>
-                    <p id="momoMessage" class="text-xs opacity-80 leading-relaxed">"سڵاو! من گەلەک حەز ژ وێ یەکێ دکەت ئەڤرۆ تە پشوو دایە و مێشکێ خۆ ئارام کری. تو چەوا دژي؟"</p>
+                    <h3 class="font-bold text-sm">دۆدۆ (Dodo)</h3>
+                    <p id="dodoMessage" class="text-xs opacity-90 leading-relaxed font-medium">"سلاڤ هەڤال! تە روتینێ خو ب سەرکەفتینا بوراند؟"</p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-2 text-xs">
-                    <button onclick="feedMomo()" class="glass-card hover:bg-pink-500/10 font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-fish text-pink-400"></i> خوارن دانە مۆمۆی
+                <!-- دوگمەیێن بنەما بۆ پرسیارا Dodo -->
+                <div id="dodoActionBox" class="flex gap-2 text-xs">
+                    <button onclick="answerDodo(true)" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check"></i> بەلێ (✅)
                     </button>
-                    <button onclick="petMomo()" class="glass-card hover:bg-pink-500/10 font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-hand-holding-heart text-pink-400"></i> دەستدانا مۆمۆی
+                    <button onclick="answerDodo(false)" class="flex-1 glass-card hover:bg-purple-500/10 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-xmark"></i> نەخێر
                     </button>
                 </div>
             </div>
@@ -336,7 +351,7 @@
             "دانانا سنورێن توند دگەل دەوروبەرێن نەرێنی بۆ هندێ ڕۆژا تە ب کەیف و بێ کێشە دەرباز ببێت."
         ];
         let currentQuote = quotes[0];
-        let favorites = JSON.parse(localStorage.getItem('badinan_favs')) || [];
+        let favorites = JSON.parse(localStorage.getItem('dodocare_favs')) || [];
 
         const azkarData = {
             m: [
@@ -363,11 +378,11 @@
 
         function renderAzkar(type) {
             document.querySelectorAll('.azkar-nav-btn').forEach(el => {
-                el.classList.remove('bg-slate-800', 'text-white');
+                el.classList.remove('bg-blue-600', 'text-white');
                 el.classList.add('opacity-75');
             });
             let activeBtn = document.getElementById('azkarBtn_' + type);
-            activeBtn.classList.add('bg-slate-800', 'text-white');
+            activeBtn.classList.add('bg-blue-600', 'text-white');
             activeBtn.classList.remove('opacity-75');
 
             let box = document.getElementById('azkar_content_box');
@@ -381,13 +396,22 @@
         function switchTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => {
-                el.classList.remove('bg-slate-800', 'text-white', 'shadow-md');
+                el.classList.remove('bg-amber-500', 'bg-blue-600', 'bg-emerald-600', 'bg-pink-500', 'bg-purple-600', 'text-slate-950', 'text-white', 'shadow-md');
                 el.classList.add('opacity-70');
             });
-            document.getElementById('tab' + tabName.charAt(0).toUpperCase() + tabName.slice(1)).classList.remove('hidden');
+            
+            let targetTab = document.getElementById('tab' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
+            targetTab.classList.remove('hidden');
+            
             let btn = document.getElementById('btn' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
-            btn.classList.add('bg-slate-800', 'text-white', 'shadow-md');
             btn.classList.remove('opacity-70');
+            btn.classList.add('shadow-md');
+            
+            if(tabName === 'quotes') btn.classList.add('bg-amber-500', 'text-slate-950');
+            else if(tabName === 'azkar') btn.classList.add('bg-blue-600', 'text-white');
+            else if(tabName === 'routine') btn.classList.add('bg-emerald-600', 'text-white');
+            else if(tabName === 'selfcare') btn.classList.add('bg-pink-500', 'text-white');
+            else if(tabName === 'dodo') btn.classList.add('bg-purple-600', 'text-white');
         }
 
         document.getElementById('newQuoteBtn').addEventListener('click', () => {
@@ -398,7 +422,7 @@
         document.getElementById('saveFavBtn').addEventListener('click', () => {
             if (!favorites.includes(currentQuote)) {
                 favorites.push(currentQuote);
-                localStorage.setItem('badinan_favs', JSON.stringify(favorites));
+                localStorage.setItem('dodocare_favs', JSON.stringify(favorites));
                 updateFavUI();
                 alert('گۆتن چوو د دڵخوازێن تە دا! ⭐');
             }
@@ -414,7 +438,7 @@
             let list = document.getElementById('favModalList');
             list.innerHTML = favorites.length === 0 ? '<p class="text-center opacity-60">چ گۆتن نینن.</p>' : '';
             favorites.forEach((q, i) => {
-                list.innerHTML += `<div class="glass-card p-2.5 rounded-xl flex justify-between items-center"><span>"${q}"</span><button onclick="favorites.splice(${i},1);localStorage.setItem('badinan_favs',JSON.stringify(favorites));openFavoritesModal();updateFavUI();" class="text-red-400"><i class="fa-solid fa-trash"></i></button></div>`;
+                list.innerHTML += `<div class="glass-card p-2.5 rounded-xl flex justify-between items-center"><span>"${q}"</span><button onclick="favorites.splice(${i},1);localStorage.setItem('dodocare_favs',JSON.stringify(favorites));openFavoritesModal();updateFavUI();" class="text-red-400"><i class="fa-solid fa-trash"></i></button></div>`;
             });
             document.getElementById('favModal').classList.remove('hidden');
         }
@@ -422,32 +446,38 @@
 
         function toggleSC(key) {
             let btn = document.getElementById('sc_' + key);
-            btn.classList.toggle('bg-purple-600');
+            btn.classList.toggle('bg-pink-500');
             btn.classList.toggle('text-white');
         }
         function toggleCheck(key) {
             let btn = document.getElementById('checkBtn_' + key);
-            btn.classList.toggle('bg-purple-600');
+            btn.classList.toggle('bg-emerald-600');
             btn.classList.toggle('text-white');
         }
         function saveMyPlanner() { alert('خشتە و پلانێن ڕۆژانە هاتنە پاشەکەفتکرن! 📅'); }
 
-        // Momo Actions
-        function feedMomo() {
-            const msgs = [
-                "مۆمۆ گەلەک ب کەیفە و حەز ژ خوارنا تە کر! 🐟",
-                "مۆمۆ گۆت: سوپاس بۆ خوارنا خۆش! 🐾",
-                "نۆکە مۆمۆ یێ تێر و مەندەهوشە! ✨"
-            ];
-            document.getElementById('momoMessage').innerText = `"${msgs[Math.floor(Math.random() * msgs.length)]}"`;
+        // Dodo Logic (پیرۆزە بەرسڤا ✅)
+        function answerDodo(isSuccess) {
+            let msgBox = document.getElementById('dodoMessage');
+            let actionBox = document.getElementById('dodoActionBox');
+            if (isSuccess) {
+                msgBox.innerText = "🎉 پـیـرۆزە! تو کەسەک سەرکەفتی ! شانازیێ ب تە دکەم! 💖";
+                actionBox.innerHTML = `<button onclick="resetDodo()" class="w-full bg-purple-600 text-white font-bold py-2.5 rounded-xl text-xs">دووبارە ڤەگەرە</button>`;
+            } else {
+                msgBox.innerText = "چ خەمان نەخۆ هەڤالا من، سوبە ڕۆژەكا نوو و پڕ دەرفەتە بۆ تە! ✨";
+                actionBox.innerHTML = `<button onclick="resetDodo()" class="w-full bg-purple-600 text-white font-bold py-2.5 rounded-xl text-xs">دووبارە ڤەگەرە</button>`;
+            }
         }
-        function petMomo() {
-            const msgs = [
-                "مۆمۆ دەستێ خۆ ل سەر سەرێ خو دزڤرێنە و دحەمەڕینە (Purr)! 😻",
-                "مۆمۆ گۆت: دەستدان ل تە ئارامیەکا مەزن ددەتە من! 💖",
-                "ئارامیا مۆمۆ گەهشتە لوتکێ! 🌸"
-            ];
-            document.getElementById('momoMessage').innerText = `"${msgs[Math.floor(Math.random() * msgs.length)]}"`;
+        function resetDodo() {
+            document.getElementById('dodoMessage').innerText = `"سلاڤ هەڤال! تە روتینێ خو ب سەرکەفتینا بوراند؟"`;
+            document.getElementById('dodoActionBox').innerHTML = `
+                <button onclick="answerDodo(true)" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check"></i> بەلێ (✅)
+                </button>
+                <button onclick="answerDodo(false)" class="flex-1 glass-card hover:bg-purple-500/10 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-xmark"></i> نەخێر
+                </button>
+            `;
         }
     </script>
 </body>
