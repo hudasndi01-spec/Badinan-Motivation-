@@ -1,626 +1,261 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl" class="dark">
+<html lang="ku">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodocare</title>
-    <meta name="theme-color" content="#0b0f19">
-    <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22Dodocare%22%2C%22short_name%22%3A%22Dodocare%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230b0f19%22%2C%22theme_color%22%3A%22%2322c55e%22%7D">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#0b0f19',
-                        cardBg: '#131c2e',
-                        pivazi: '#ffc0cb',
-                        khamar: '#9333ea',
-                        kask: '#22c55e',
-                        sor: '#ef4444'
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Dodocare - سەکۆیا ئارامیا تە</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap');
-        body { font-family: 'Vazirmatn', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
-        
-        body.dark { background-color: #0b0f19; color: #f1f5f9; }
-        body.light { background-color: #f8fafc; color: #1e293b; }
+        :root {
+            --bg-color: #12121f;
+            --card-bg: rgba(22, 22, 42, 0.85);
+            --accent-purple: #706fd3;
+            --accent-pink: #ff7979;
+            --text-main: #ffffff;
+            --text-muted: #a4b0be;
+        }
 
-        .glass-card { transition: background 0.3s ease, border 0.3s ease; }
-        body.dark .glass-card { background: linear-gradient(135deg, rgba(19, 28, 46, 0.95), rgba(11, 15, 25, 0.98)); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        body.light .glass-card { background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.98)); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+‎        /* پاشبنەمایا زیندوو و ئارامکەر */
+        .bg-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: rgba(112, 111, 211, 0.15);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: moveGlow 10s infinite alternate ease-in-out;
+        }
+        .bg-glow:nth-child(2) {
+            background: rgba(255, 121, 121, 0.1);
+            right: -50px;
+            bottom: -50px;
+            animation-duration: 14s;
+        }
+
+        @keyframes moveGlow {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(50px) scale(1.2); }
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 { color: var(--accent-purple); font-size: 2.2rem; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(112,111,211,0.3); }
+        .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; }
+
+        .card {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .dodo-box {
+            font-size: 55px;
+            animation: bounce 2s infinite ease-in-out;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .speech-bubble {
+            background: var(--accent-purple);
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            display: inline-block;
+            max-width: 90%;
+            box-shadow: 0 4px 15px rgba(112,111,211,0.3);
+            line-height: 1.6;
+        }
+
+        .btn {
+            background: var(--accent-purple);
+            border: none;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(112,111,211,0.3);
+        }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+        .btn-danger { background: var(--accent-pink); box-shadow: 0 4px 12px rgba(255,121,121,0.3); }
+
+        textarea {
+            width: 100%;
+            height: 90px;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            padding: 12px;
+            box-sizing: border-box;
+            resize: none;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            border-color: var(--accent-purple);
+        }
+
+        .fade-out {
+            animation: fadeSmoke 1.5s forwards ease-out;
+        }
+
+        @keyframes fadeSmoke {
+            0% { opacity: 1; transform: scale(1); filter: blur(0); }
+            100% { opacity: 0; transform: scale(0.9) translateY(-20px); filter: blur(6px); }
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 1.5px;
+        }
     </style>
 </head>
-<body class="dark min-h-screen flex flex-col items-center justify-between p-4 selection:bg-purple-500 selection:text-white">
+<body>
 
-    <header class="max-w-md w-full flex items-center justify-between glass-card p-4 rounded-2xl shadow-xl mb-4 border-t-4 border-kask">
-        <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-kask to-emerald-700 flex items-center justify-center text-white font-bold text-xs shadow-lg">DC</div>
-            <div>
-                <h1 class="text-xs font-bold tracking-wide">Dodocare</h1>
-                <p class="text-[10px] opacity-70">ژینگەها تەیا ئارام</p>
-            </div>
-        </div>
-        <div class="flex items-center gap-2">
-            <button onclick="toggleTheme()" class="w-8 h-8 rounded-xl glass-card flex items-center justify-center text-amber-400 hover:scale-105 transition shadow-sm cursor-pointer" title="گۆهۆڕینا ڕەنگی">
-                <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
-            </button>
-            <div class="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-xl glass-card shadow-inner opacity-95">
-                <i class="fa-solid fa-fire text-amber-400"></i> <span id="streakCount">1</span> ڕۆژ Streak
-            </div>
-        </div>
-    </header>
+    <div class="bg-glow"></div>
+    <div class="bg-glow"></div>
 
-    <main class="max-w-md w-full space-y-4">
-        
-        <div class="glass-card p-3 rounded-2xl text-center space-y-2 border-r-4 border-emerald-500">
-            <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5"><i class="fa-solid fa-mobile-screen"></i> زێدەکرنا ئەپلیکەیشن بۆ شاشەیا سەرەکی</span>
-                <button onclick="toggleHomeGuide()" class="text-[11px] underline opacity-80 hover:opacity-100 cursor-pointer">رێنمایی</button>
-            </div>
-            <div id="homeGuideBox" class="hidden text-[11px] opacity-90 space-y-1 text-right pt-2 border-t border-white/10">
-                <p><strong>بۆ ئایفۆنی (Safari):</strong> کلیک لکاڤەگرتنێ بکە <i class="fa-solid fa-arrow-up-from-bracket text-blue-400"></i> پاشان <strong>Add to Home Screen</strong> هەڵبژێرە.</p>
-                <p><strong>بۆ ئاندرۆید (Chrome):</strong> سێ خالێن سەرێ لایێ راست کلیک بکە <i class="fa-solid fa-ellipsis-vertical text-amber-400"></i> پاشان <strong>Add to Home screen</strong> هەڵبژێرە.</p>
-            </div>
-        </div>
+<div class="container">
+    <h1>Dodocare 🐱</h1>
+    <div class="subtitle">سەکۆیا ئارامیا ناخێ تە ✨</div>
 
-        <div class="grid grid-cols-5 gap-1 glass-card p-1.5 rounded-2xl">
-            <button onclick="switchTab('quotes')" id="btnQuotes" class="tab-btn py-2 rounded-xl text-[9px] font-bold transition flex flex-col items-center gap-1 bg-amber-500 text-slate-950 shadow-md cursor-pointer">
-                <i class="fa-solid fa-bolt"></i> گۆتن
-            </button>
-            <button onclick="switchTab('azkar')" id="btnAzkar" class="tab-btn py-2 rounded-xl text-[9px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100 cursor-pointer">
-                <i class="fa-solid fa-book-quran"></i> زکر
-            </button>
-            <button onclick="switchTab('ayat')" id="btnAyat" class="tab-btn py-2 rounded-xl text-[9px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100 cursor-pointer">
-                <i class="fa-solid fa-quran"></i> ئایەت
-            </button>
-            <button onclick="switchTab('routine')" id="btnRoutine" class="tab-btn py-2 rounded-xl text-[9px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100 cursor-pointer">
-                <i class="fa-solid fa-calendar-days"></i> خشتە
-            </button>
-            <button onclick="switchTab('dodo')" id="btnDodo" class="tab-btn py-2 rounded-xl text-[9px] font-bold transition flex flex-col items-center gap-1 opacity-70 hover:opacity-100 cursor-pointer">
-                <i class="fa-solid fa-cat"></i> Dodo
-            </button>
-        </div>
-
-        <div id="tabQuotes" class="tab-content space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 text-center border-t-4 border-amber-500">
-                <div class="glass-card rounded-2xl p-3">
-                    <div id="liveClock" class="text-xl font-extrabold tracking-wider">00:00:00</div>
-                    <p id="clockMessage" class="text-[11px] opacity-70 mt-1">ئەڤرۆ ڕۆژا تە یە، هیڤیا من ئەوە پڕ هێز و ئارامی بیت! 🌅</p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6 min-h-[140px] flex flex-col justify-center items-center relative shadow-inner">
-                    <span class="absolute top-3 right-3 text-[10px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 font-bold">گۆتنا هاندەر بو ڕۆژانە</span>
-                    <p id="quoteText" class="text-xs font-medium leading-relaxed mt-2">"ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!"</p>
-                </div>
-
-                <div class="flex gap-2">
-                    <button id="newQuoteBtn" class="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs cursor-pointer">
-                        <i class="fa-solid fa-shuffle"></i> گۆتنا نوو
-                    </button>
-                    <button id="saveFavBtn" class="glass-card hover:opacity-80 text-amber-400 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-1 text-xs shadow-md cursor-pointer">
-                        <i class="fa-solid fa-star"></i> <span id="favCount">0</span>
-                    </button>
-                </div>
-
-                <button onclick="openFavoritesModal()" class="w-full glass-card hover:opacity-80 font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm cursor-pointer">
-                    <i class="fa-solid fa-bookmark text-amber-400"></i> دیتنا گۆتنێن دڵخواز (<span id="favListCount">0</span>)
-                </button>
-            </div>
-        </div>
-
-        <div id="tabAzkar" class="tab-content hidden space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 max-h-[70vh] overflow-y-auto border-t-4 border-blue-500">
-                <h2 class="text-sm font-bold flex items-center gap-2 border-b border-white/10 pb-2 text-blue-400">
-                    <i class="fa-solid fa-book-quran"></i> زکرێن ڕۆژانە
-                </h2>
-                <div class="grid grid-cols-5 gap-1 glass-card p-1 rounded-xl text-[10px]">
-                    <button onclick="renderAzkar('m')" id="azkarBtn_m" class="azkar-nav-btn bg-blue-600 text-white font-bold py-1.5 rounded-lg cursor-pointer">سپێدە</button>
-                    <button onclick="renderAzkar('n')" id="azkarBtn_n" class="azkar-nav-btn opacity-70 font-bold py-1.5 rounded-lg cursor-pointer">نیڤرۆ</button>
-                    <button onclick="renderAzkar('e')" id="azkarBtn_e" class="azkar-nav-btn opacity-70 font-bold py-1.5 rounded-lg cursor-pointer">ئێڤاری</button>
-                    <button onclick="renderAzkar('mg')" id="azkarBtn_mg" class="azkar-nav-btn opacity-70 font-bold py-1.5 rounded-lg cursor-pointer">مەغریب</button>
-                    <button onclick="renderAzkar('ni')" id="azkarBtn_ni" class="azkar-nav-btn opacity-70 font-bold py-1.5 rounded-lg cursor-pointer">شەڤ</button>
-                </div>
-                <div id="azkar_content_box" class="space-y-2.5 text-xs"></div>
-            </div>
-        </div>
-
-        <div id="tabAyat" class="tab-content hidden space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 max-h-[75vh] overflow-y-auto border-t-4 border-kask">
-                <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                    <h2 class="text-sm font-bold flex items-center gap-2 text-kask">
-                        <i class="fa-solid fa-quran"></i> ئایەتێن پیرۆز و رامانا وان
-                    </h2>
-                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-kask/20 text-kask font-bold">بەر چاڤکرنا بادینی</span>
-                </div>
-                <div id="ayatContainer" class="space-y-3 text-xs"></div>
-            </div>
-        </div>
-
-        <div id="tabRoutine" class="tab-content hidden space-y-4">
-            <div id="routineCardContainer" class="rounded-3xl p-5 shadow-2xl space-y-4 max-h-[75vh] overflow-y-auto border-t-4 border-kask bg-kask/5 transition-all duration-300">
-                <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                    <h2 class="text-sm font-bold flex items-center gap-2 text-kask">
-                        <i class="fa-solid fa-calendar-days"></i> خشتە و رۆتینا ڕۆژانە
-                    </h2>
-                    <span class="text-[10px] opacity-75">ڕەنگەکێ جوان هەڵبژێرە 🌸</span>
-                </div>
-
-                <div class="space-y-1.5">
-                    <label class="text-[11px] font-bold opacity-80">ڕەنگێ خشتەی هەڵبژێرە:</label>
-                    <div class="grid grid-cols-4 gap-1.5">
-                        <button type="button" onclick="setRoutineTheme('pivazi')" id="themeBtn_pivazi" class="p-2 rounded-xl text-[10px] font-bold border-2 border-transparent glass-card opacity-75 hover:opacity-100 flex items-center justify-center gap-1 cursor-pointer transition">
-                            <span class="w-2 h-2 rounded-full bg-pink-300"></span> پیڤازی
-                        </button>
-                        <button type="button" onclick="setRoutineTheme('khamar')" id="themeBtn_khamar" class="p-2 rounded-xl text-[10px] font-bold border-2 border-transparent glass-card opacity-75 hover:opacity-100 flex items-center justify-center gap-1 cursor-pointer transition">
-                            <span class="w-2 h-2 rounded-full bg-purple-600"></span> مۆر
-                        </button>
-                        <button type="button" onclick="setRoutineTheme('kask')" id="themeBtn_kask" class="p-2 rounded-xl text-[10px] font-bold border-2 border-kask bg-kask/20 text-kask flex items-center justify-center gap-1 cursor-pointer transition">
-                            <span class="w-2 h-2 rounded-full bg-kask"></span> کەسک
-                        </button>
-                        <button type="button" onclick="setRoutineTheme('sor')" id="themeBtn_sor" class="p-2 rounded-xl text-[10px] font-bold border-2 border-transparent glass-card opacity-75 hover:opacity-100 flex items-center justify-center gap-1 cursor-pointer transition">
-                            <span class="w-2 h-2 rounded-full bg-red-500"></span> سۆر
-                        </button>
-                    </div>
-                </div>
-
-                <div class="space-y-3 text-xs pt-1">
-                    <div class="glass-card p-3.5 rounded-2xl space-y-2 border-r-4 border-amber-400">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-sun text-amber-400"></i> سپێدە</span>
-                            <button type="button" onclick="toggleCheck('morning')" id="checkBtn_morning" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center opacity-70 hover:opacity-100 cursor-pointer transition">
-                                <i class="fa-solid fa-check text-[10px]"></i>
-                            </button>
-                        </div>
-                        <input type="text" id="planMorning" placeholder="پلانا سپێدێ لڤێرێ بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
-                    </div>
-
-                    <div class="glass-card p-3.5 rounded-2xl space-y-2 border-r-4 border-orange-400">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-cloud-sun text-orange-400"></i> نیڤرۆ</span>
-                            <button type="button" onclick="toggleCheck('noon')" id="checkBtn_noon" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center opacity-70 hover:opacity-100 cursor-pointer transition">
-                                <i class="fa-solid fa-check text-[10px]"></i>
-                            </button>
-                        </div>
-                        <input type="text" id="planNoon" placeholder="پلانا نیڤرۆ لڤێرێ بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
-                    </div>
-
-                    <div class="glass-card p-3.5 rounded-2xl space-y-2 border-r-4 border-indigo-400">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-cloud-moon text-indigo-400"></i> ئێڤاری</span>
-                            <button type="button" onclick="toggleCheck('evening')" id="checkBtn_evening" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center opacity-70 hover:opacity-100 cursor-pointer transition">
-                                <i class="fa-solid fa-check text-[10px]"></i>
-                            </button>
-                        </div>
-                        <input type="text" id="planEvening" placeholder="پلانا ئێڤاری لڤێرێ بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
-                    </div>
-
-                    <div class="glass-card p-3.5 rounded-2xl space-y-2 border-r-4 border-purple-400">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-moon text-purple-400"></i> شەڤ</span>
-                            <button type="button" onclick="toggleCheck('night')" id="checkBtn_night" class="w-7 h-7 rounded-lg glass-card flex items-center justify-center opacity-70 hover:opacity-100 cursor-pointer transition">
-                                <i class="fa-solid fa-check text-[10px]"></i>
-                            </button>
-                        </div>
-                        <input type="text" id="planNight" placeholder="پلانا شەڤێ لڤێرێ بنڤیسە..." class="w-full glass-card rounded-xl p-2.5 text-xs focus:outline-none">
-                    </div>
-                </div>
-
-                <button type="button" onclick="saveMyPlanner()" class="w-full bg-kask hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs shadow-lg cursor-pointer transition">پاشەکەفتکرنا خشتەی</button>
-            </div>
-        </div>
-
-        <div id="tabDodo" class="tab-content hidden space-y-4">
-            <div class="glass-card rounded-3xl p-5 shadow-2xl space-y-4 text-center border-t-4 border-purple-500">
-                <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                    <h2 class="text-sm font-bold flex items-center gap-2 text-purple-400">
-                        <i class="fa-solid fa-cat"></i> Self-Care Pet: Dodo
-                    </h2>
-                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-bold">هەڤالێ ئارام</span>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center space-y-3 relative overflow-hidden">
-                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white text-3xl shadow-xl animate-bounce">
-                        🐱
-                    </div>
-                    <h3 class="font-bold text-sm">دۆدۆ (Dodo)</h3>
-                    <p id="dodoMessage" class="text-xs opacity-90 leading-relaxed font-medium">"سلاڤ هەڤال! تە روتینێ خو ب سەرکەفتینا بوراند؟"</p>
-                </div>
-
-                <div id="dodoActionBox" class="flex gap-2 text-xs">
-                    <button type="button" onclick="answerDodo(true)" class="flex-1 bg-kask hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer z-20">
-                        <i class="fa-solid fa-check"></i> بەلێ (✅)
-                    </button>
-                    <button type="button" onclick="answerDodo(false)" class="flex-1 glass-card hover:bg-purple-500/10 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer z-20">
-                        <i class="fa-solid fa-xmark"></i> نەخێر (🚫)
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <div id="favModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-3xl p-5 max-w-sm w-full shadow-2xl space-y-4 relative max-h-[80vh] flex flex-col">
-            <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2"><i class="fa-solid fa-star"></i> گۆتنێن دڵخواز</h3>
-                <button type="button" onclick="closeFavoritesModal()" class="opacity-70 hover:opacity-100 text-xs cursor-pointer"><i class="fa-solid fa-xmark text-base"></i></button>
-            </div>
-            <div id="favModalList" class="overflow-y-auto space-y-2 flex-1 text-xs opacity-90"></div>
+    <div class="card">
+        <h3>گۆتنێن ڕۆژانە یێن دۆدۆ 💬</h3>
+        <div class="dodo-box">🐱</div>
+        <div>
+            <div class="speech-bubble" id="daily-quote">“ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!”</div>
         </div>
     </div>
 
-    <footer class="text-center text-[10px] opacity-60 space-y-1 mt-4">
-        Created by: <span class="font-medium">Huda Shahin Sindi</span><br>
-        2026 @ هەمی ماف پاراستینە
+    <div class="card">
+        <h3>دەفتەرا پاقژکرنا مێشکی 🖤</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+‎            ئەڤڕۆ تە ڕۆژەک نەخۆش هەیە یان تو بەردەوام هزرێن نەرێنی دکەی؟<br>
+‎            نوکە ل ڤێرێ وان هزرێن خۆ بنڤیسە، بخوینە، و بێژە خۆ: 
+            <strong style="color: var(--accent-pink);">«ئەڤە بتنێ هزرە، ئەڤە بۆچی دێ بیت ئەگەر ئەس ڕۆژا خۆ نەخۆش بکەم؟»</strong><br>
+‎            و هەر زویکا ژێ ببە!
+        </p>
+        <textarea id="journal-input" placeholder="هزرێن خۆ یێن نەرێنی ل ڤێرێ بنڤیسە..."></textarea>
+        <button class="btn btn-danger" style="margin-top: 12px;" onclick="burnThoughts()">🗑️ ڤان هزران ژناڤ ببرە و مێشکی ئارام بکە</button>
+    </div>
+
+    <footer>
+        CREATED BY: HUDA SHAHIN SINDI | DODOCARE &copy; 2026
     </footer>
+</div>
 
-    <script>
-        // Live Clock
-        function updateClock() {
-            const now = new Date();
-            const timeString = now.toTimeString().split(' ')[0];
-            const clockEl = document.getElementById('liveClock');
-            if(clockEl) clockEl.innerText = timeString;
+<script>
+‎    // لیستا گۆتنێن ڕۆژانە یێن تە داویتر خاستین (هەمی ب بادینی)
+    const quotes = [
+‎        "“ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!”",
+‎        "“تو گەلەک ژ هندێ ب هێزتری تو دەستا ب داهێلی.”",
+‎        "“بخۆ بژی، نە بۆ ڕازیکرنا خەڵکی.”",
+‎        "“هەر نوکە دەست پێ بکە، چ جاران درەنگ نینە.”",
+‎        "“تو یا ب هێزی، باوەریێ ب شیانێن خۆ بینە.”",
+‎        "“ئەڤرۆ دەرفەتەکا نووی یە بۆ هندێ تو بگەهیە حەزێن خۆ.”",
+‎        "“خەونێن تە مەزنن، هەولدانێن خۆ ژی مەزنتر لێ بکە.”",
+‎        "“تو داهێنەرا ژیانا خۆیی، جوان ڕەنگ بکە.”",
+‎        "“هەر تشتەکێ ئەڤرۆ دکەی، سوبە دێ پێ کەیفخۆش بی.”",
+‎        "“تو ب تنێ دشێی ژیانا خۆ بگۆهۆڕی، دەست پێ بکە.”",
+‎        "“ئارام بە، خودێ دێ دەرگەهێن خێڕێ بۆ تە ڤەکەت.”",
+‎        "“پێنگاڤەکا بچووک باشترە ژ ڕاوەستانێ.”",
+‎        "“تو ژ هەژی باشترین تشتی د ژیانێ دا.”",
+‎        "“دەست ژ هیڤیێن خۆ بەرنەدە، تو کەسەک خودان شیانی.”",
+‎        "“ئەڤرۆ کار بکە، دا کو سوبە شانازیێ ب خۆ بەی.”",
+‎        "“ترسێ ژ دلێ خۆ دەر بێخە و بەرەف پێش هەرە.”",
+‎        "“ماندیبوونا ئەڤرۆ، دێ بیتە کەیفخۆشیا سوبەهی.”",
+‎        "“کەسەک نینە شوینا تە شەڕی بۆ خەونێن تە بکەت.”",
+‎        "“بڕیارێ بدە و چو جاران سستیێ تێدا نەکە.”",
+‎        "“هەر دەمەکێ تو تێدا دژی، دەمەکێ زێڕینە.”",
+‎        "“ژ دەستپێکرنا نوو نەترسە، ئەڤە دەرفەتا تە یە.”",
+‎        "“ئەڤرۆ یا پڕە ژ وزە و هێزێ، بکاربینە!”",
+‎        "“تو یا بڕیاردەری، چو هێز نەشێن تە ڕاگرن.”",
+‎        "“هەول بدە ئەڤرۆ باشتر بی ژ دوهی.”",
+‎        "“سەبر کلیلا هەر دەرگەهەکەکێ داخستی یە.”",
+‎        "“ب دڵسۆزی کار بکە، ئەنجام دێ تە مەندەهوش کەن.”",
+‎        "“تو یا تایبەتی، چو کەس وەک تە نین.”",
+‎        "“ژیان یا کورتە، ب کەیف و سەرکەفتن دەرباز بکە.”",
+‎        "“سەرکەفتن ناهێت، پێدڤییە تو بۆ بچی.”",
+‎        "“خودێ دگەل تە یە، چ خەمان نەخۆ.”",
+‎        "“تو خودان ئیرادەیەکا بهێزی.”",
+‎        "“بێدەنگ کار بکە، بهێڵە دەنگێ سەرکەفتنا تە بڵند ببیت.”",
+‎        "“هەر ڕۆژەکا نوو، شانسەک نوو یە بۆ سەرکەفتنێ.”",
+‎        "“پاشەڕۆژ یا وان کەسانە یێن باوەری ب خەونێن خۆ هەی.”",
+‎        "“ئارمانجێن مەزن قوربانیێن مەزن دڤێن.”",
+‎        "“تو ژ وێ ب هێزتری یا دیار دکەی.”",
+‎        "“ئارمانج بێ پلان، تنێ خەونەکە.”",
+‎        "“بچووکترین پێنگاڤ ژی باشترە ژ جهەکێ دیار.”",
+‎        "“کەسێ نەکە خودانێ بریارێن خۆ؛ ژیانا تە یا تە یە و کەس ماف نینە تێک بدەت.”",
+‎        "“تو نە مەجبووری کەسەکێ ژ خۆ ڕازیکەی، گرنگ ئەوە تو ژ خۆ ڕازی بی و ئەڤە بەسە.”",
+‎        "“هندەک جار دوورکەفتنا ژ خەلکی، مەزنترین دیارییە تو ددەیه‌ گیانێ خۆ.”",
+‎        "“تو گەلەک ژ هندێ بهاتری کو دەمێ خۆ بۆ کەسێن بێ مفا تەرخان بکەی.”",
+‎        "“تشتێ هەر گرنگ ل ڤێ جیهانێ، ئارامیا مێشکێ تە یە؛ هەر تشتێ وی تێک بدەت، ژێ دوور بکەڤە.”",
+‎        "“کەسێن نەرێنی تنێ دڤێن هێزا تە ببڕن؛ نەهێلە ئارامیا ڕۆژا تە تێک بدەن.”",
+‎        "“هەر دەمێ تو هەول ددەی هەمی کەسی ڕازی بکەی، وی دەمی تو یێ خۆ ژ دەست ددەی.”",
+‎        "“دەمێ خۆ بۆ کەسێن بێ مفا تەرخان نەکە.”",
+‎        "“تشتێ هەرە خراب ئەوە تو ژیانا خۆ ب ڕازیکرنا خەلکی ڤە بۆرینی.”",
+‎        "“دوورکەفتنا ژ کەسێن نەرێنی، نیڤا سەرکەفتن و ئارامیا تە یە.”",
+‎        "“خەونێن تە ژ ڕایێن خەلکی گرانبەها ترن؛ لدووڤ دەنگێ دلێ خوە هەرە نەک بۆچونا خەلکی.”",
+‎        "“گۆتنا 'نەخێر' بۆ هەر ژینگەهەکا کو ڕەخنەیێن نەدرۆست ل تە بگرن و باوەرییا تە ب خۆ بشکینن.”",
+‎        "“دانانا سنورێن توند دگەل دەوروبەرێن نەرێنی بۆ هندێ ڕۆژا تە ب کەیف و بێ کێشە دەرباز ببێت.”"
+    ];
+
+‎    // گۆڕینی گۆتنان ب شێوازەکێ خودکار ڕۆژانە
+    const dayOfYear = Math.floor(new Date() / 8.64e7);
+    document.getElementById('daily-quote').innerText = quotes[dayOfYear % quotes.length];
+
+    // ئەنیمەیشنا ژێبرنا هزرێن نەرێنی (Smoke Effect)
+    function burnThoughts() {
+        const txt = document.getElementById('journal-input');
+        if(txt.value.trim() !== "") {
+            txt.classList.add('fade-out');
+            setTimeout(() => {
+                txt.value = "";
+                txt.classList.remove('fade-out');
+                alert("🗑️ هزرێن نەخۆش هاتنە ژێبرن! ئەڤە تنێ هزر بوون، و نوکە ڕۆژا خۆ ب کەیف ببۆرینە. دۆدۆ شانازیێ ب تە دکەت! ✨");
+            }, 1500);
+        } else {
+            alert("پێشتر هزرەکێ ل ڤێرێ بنڤیسە!");
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+    }
+</script>
 
-        function toggleHomeGuide() {
-            let box = document.getElementById('homeGuideBox');
-            box.classList.toggle('hidden');
-        }
-
-        // Streak & Calendar Logic
-        let lastVisit = localStorage.getItem('badinan_last_visit');
-        let streak = parseInt(localStorage.getItem('badinan_streak')) || 1;
-        let todayStr = new Date().toDateString();
-
-        if (lastVisit !== todayStr) {
-            if (lastVisit) {
-                let lastDate = new Date(lastVisit);
-                let currentDate = new Date(todayStr);
-                let diffTime = Math.abs(currentDate - lastDate);
-                let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                if (diffDays === 1) {
-                    streak++;
-                } else if (diffDays > 1) {
-                    streak = 1;
-                }
-            }
-            localStorage.setItem('badinan_last_visit', todayStr);
-            localStorage.setItem('badinan_streak', streak);
-        }
-        document.getElementById('streakCount').innerText = streak;
-
-        // Theme Toggle Logic
-        function toggleTheme() {
-            let body = document.body;
-            let icon = document.getElementById('themeIcon');
-            if (body.classList.contains('dark')) {
-                body.classList.remove('dark');
-                body.classList.add('light');
-                icon.className = 'fa-solid fa-sun text-xs';
-                localStorage.setItem('badinan_theme', 'light');
-            } else {
-                body.classList.remove('light');
-                body.classList.add('dark');
-                icon.className = 'fa-solid fa-moon text-xs';
-                localStorage.setItem('badinan_theme', 'dark');
-            }
-        }
-        if (localStorage.getItem('badinan_theme') === 'light') {
-            document.body.classList.remove('dark');
-            document.body.classList.add('light');
-            document.getElementById('themeIcon').className = 'fa-solid fa-sun text-xs';
-        }
-
-        // Quotes Array
-        const quotes = [
-            "ئەڤرۆ ڕۆژا تە یە، پێنگاڤێ باڤێژە!",
-            "تو گەلەک ژ هندێ ب هێزتری تو دەستا ب داهێلی.",
-            "بخۆ بژی، نە بۆ ڕازیکرنا خەڵکی.",
-            "هەر نوکە دەست پێ بکە، چ جاران درەنگ نینە.",
-            "تو یا ب هێزی، باوەریێ ب شیانێن خۆ بینە.",
-            "ئەڤرۆ دەرفەتەکا نووی یە بۆ هندێ تو بگەهیە حەزێن خۆ.",
-            "خەونێن تە مەزنن، هەولدانێن خۆ ژی مەزنتر لێ بکە.",
-            "تو داهێنەرا ژیانا خۆیی، جوان ڕەنگ بکە.",
-            "هەر تشتەکێ ئەڤرۆ دکەی، سوبە دێ پێ کەیفخۆش بی.",
-            "تو ب تنێ دشێی ژیانا خۆ بگۆهۆڕی، دەست پێ بکە.",
-            "ئارام بە، خودێ دێ دەرگەهێن خێڕێ بۆ تە ڤەکەت.",
-            "پێنگاڤەکا بچووک باشترە ژ ڕاوەستانێ.",
-            "تو ژ هەژی باشترین تشتی د ژیانێ دا.",
-            "دەست ژ هیڤیێن خۆ بەرنەدە، تو کەسەک خودان شیانی.",
-            "ئەڤرۆ کار بکە، دا کو سوبە شانازیێ ب خۆ بەی.",
-            "ترسێ ژ دلێ خۆ دەر بێخە و بەرەف پێش هەرە.",
-            "ماندیبوونا ئەڤرۆ، دێ بیتە کەیفخۆشیا سوبەهی.",
-            "کەسەک نینە شوینا تە شەڕی بۆ خەونێن تە بکەت.",
-            "بڕیارێ بدە و چو جاران سستیێ تێدا نەکە.",
-            "هەر دەمەکێ تو تێدا دژی، دەمەکێ زێڕینە.",
-            "ژ دەستپێکرنا نوو نەترسە، ئەڤە دەرفەتا تە یە.",
-            "ئەڤرۆ یا پڕە ژ وزە و هێزێ، بکاربینە!",
-            "تو یا بڕیاردەری، چو هێز نەشێن تە ڕاگرن.",
-            "هەول بدە ئەڤرۆ باشتر بی ژ دوهی.",
-            "سەبر کلیلا هەر دەرگەهەکەکێ داخستی یە.",
-            "ب دڵسۆزی کار بکە، ئەنجام دێ تە مەندەهوش کەن.",
-            "تو یا تایبەتی، چو کەس وەک تە نین.",
-            "ژیان یا کورتە، ب کەیف و سەرکەفتن دەرباز بکە.",
-            "سەرکەفتن ناهێت، پێدڤییە تو بۆ بچی.",
-            "خودێ دگەل تە یە، چ خەمان نەخۆ.",
-            "تو خودان ئیرادەیەکا بهێزی.",
-            "بێدەنگ کار بکە، بهێڵە دەنگێ سەرکەفتنا تە بڵند ببیت.",
-            "هەر ڕۆژەکا نوو، شانسەک نوو یە بۆ سەرکەفتنێ.",
-            "پاشەڕۆژ یا وان کەسانە یێن باوەری ب خەونێن خۆ هەی.",
-            "ئارمانجێن مەزن قوربانیێن مەزن دڤێن.",
-            "تو ژ وێ ب هێزتری یا دیار دکەی.",
-            "ئارمانج بێ پلان، تنێ خەونەکە.",
-            "بچووکترین پێنگاڤ ژی باشترە ژ جهەکێ دیار.",
-            "کەسێ نەکە خودانێ بریارێن خۆ؛ ژیانا تە یا تە یە و کەس ماف نینە تێک بدەت.",
-            "تو نە مەجبووری کەسەکێ ژ خۆ ڕازیکەی، گرنگ ئەوە تو ژ خۆ ڕازی بی و ئەڤە بەسە.",
-            "هندەک جار دوورکەفتنا ژ خەلکی، مەزنترین دیارییە تو ددەیه‌ گیانێ خۆ.",
-            "تو گەلەک ژ هندێ بهاتری کو دەمێ خۆ بۆ کەسێن بێ مفا تەرخان بکەی.",
-            "تشتێ هەر گرنگ ل ڤێ جیهانێ، ئارامیا مێشکێ تە یە؛ هەر تشتێ وی تێک بدەت، ژێ دوور بکەڤە.",
-            "کەسێن نەرێنی تنێ دڤێن هێزا تە ببڕن؛ نەهێلە ئارامیا ڕۆژا تە تێک بدەن.",
-            "هەر دەمێ تو هەول ددەی هەمی کەسی ڕازی بکەی، وی دەمی تو یێ خۆ ژ دەست ددەی.",
-            "دەمێ خۆ بۆ کەسێن بێ مفا تەرخان نەکە.",
-            "تشتێ هەرە خراب ئەوە تو ژیانا خۆ ب ڕازیکرنا خەلکی ڤە بۆرینی.",
-            "دوورکەفتنا ژ کەسێن نەرێنی، نیڤا سەرکەفتن و ئارامیا تە یە.",
-            "خەونێن تە ژ ڕایێن خەلکی گرانبەها ترن؛ لدووڤ دەنگێ دلێ خوە هەرە نە بۆچونا خەلکی."
-        ];
-        let currentQuote = quotes[0];
-        let favorites = JSON.parse(localStorage.getItem('dodocare_favs')) || [];
-
-        // Ayat Data
-        const ayatList = [
-            { arabic: "فَاذْكُرُونِي أَذْكُرْكُمْ", ref: "البقرة: ١٥٢", badini: "ڤیجا هوین من ب بیر بینن (ب عیبادەتی)، ئەز ژی دێ هەوە ب بیر ئینم (ب خێران)." },
-            { arabic: "إِنَّ مَعَ الْعُسْرِ يُسْرًا", ref: "الشرح: ٦", badini: "ب دروستی دگەل هەر ته‌نگاڤیه‌كێ، ساناهیبوونەک هەیە." },
-            { arabic: "وَقُلْ رَبِّ زِدْنِي عِلْمًا", ref: "طه: ١١٤", badini: "و بێژە: خودایێ من، زانینا من زێدە بکە." },
-            { arabic: "وَأَحْسِنُوا إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ", ref: "البقرة: ١٩٥", badini: "و چاکیێ بکەن، چونکی ب راستی خودێ حەز ژ چاکەکاران دکەت." },
-            { arabic: "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا", ref: "العنكبوت: ٦٩", badini: "و ئەوێن د رێکا مەدا جیهاد و کۆشش کرین، دێ هدايەتێ دەینە وان بۆ رێکێن خۆ." },
-            { arabic: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", ref: "البقرة: ١٥٣", badini: "ب راستی خودێ دگەل تەحملکەران (سەبرکێشان)ە." },
-            { arabic: "وَقُولُوا لِلنَّاسِ حُسْنًا", ref: "البقرة: ٨٣", badini: "و ئاخفتنا جوان و باش دگەل مرۆڤان بێژن." },
-            { arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى", ref: "المائدة: ٢", badini: "و هاریکاریا ئێک و دوو بکەن ل سەر چاکیێ و پارێزگاریێ (تەقوایێ)." },
-            { arabic: "إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ", ref: "هود: ١١٤", badini: "ب راستی کارێن چاک، گونەهـ و تشتێن خراب ژ ناڤ دبەن." },
-            { arabic: "وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ", ref: "البقرة: ١٩٧", badini: "و هوین هەر چاکەیەکا بکەن، خودێ پێ دزانیت." },
-            { arabic: "ادْعُونِي أَسْتَجِبْ لَكُمْ", ref: "غافر: ٦٠", badini: "دوعایان ژ من بکەن، ئەز دێ بەرسڤا هەوە دەم." },
-            { arabic: "وَمَا رَبُّكَ بِظَلَّامٍ لِلْعَبِيدِ", ref: "فصلت: ٤٦", badini: "و خودایێ تە چ جاران زۆلمێ ل عەبدێن خۆ ناکەت." },
-            { arabic: "وَخَلَقْنَاكُمْ أَزْوَاجًا", ref: "النبأ: ٨", badini: "و مە هوین ب جووت (نێر و مێ) بەدیهێناینە." },
-            { arabic: "لَئِنْ شَكَرْتُمْ لَأَزِيدَنَّكُمْ", ref: "إبراهيم: ٧", badini: "ئەگەر هوین شوکریا (نیعمەتێن من) بکەن، ئەز دێ بۆ هەوە زێدە کەم." },
-            { arabic: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ", ref: "الرعد: ٢٨", badini: "هشیار بن، ب تنێ ب زیکرێ خودێ دل ئارام دبن." },
-            { arabic: "وَاللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ", ref: "البقرة: ٢٦٥", badini: "و خودێ ب وێ تشتێ هوین دکەن یێ بینایە (دبینیت)." },
-            { arabic: "هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ", ref: "الرحمن: ٦٠", badini: "ئەرێ جەزایێ چاکیێ پێ دچیت، ژبلی چاکیێ؟" },
-            { arabic: "إِنَّ رَبِّي قَرِيبٌ مُجِيبٌ", ref: "هود: ٦١", badini: "ب راستی خودایێ من یێ نێزیکە و بەرسڤدەرە." },
-            { arabic: "وَهُو مَعَكُمْ أَيْنَ مَا كُنْتُمْ", ref: "الحديد: ٤", badini: "و ئەو دگەل هەوەیە ل هەر جهەکێ هوین لێ بن." },
-            { arabic: "وَعَسَى أَنْ تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَكُمْ", ref: "البقرة: ٢١٦", badini: "و بەلکی هوین حەز ژ تشتەکی نەکەن، لێ ئەو خێر و باشی بیت بۆ هەوە." },
-            { arabic: "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ", ref: "الشعراء: ٨٠", badini: "و دەمێ ئەز نەخۆش دکەوم، هەر ئەو (خودێ) شیفایێ ددەتە من." },
-            { arabic: "فَاصْبِرْ صَبْرًا جَمِيلًا", ref: "المعارج: ٥", badini: "ڤیجا سەبرەکا جوان بکێشە." },
-            { arabic: "إِنَّ اللَّهَ غَفُورٌ رَحِيمٌ", ref: "البقرة: ١٧٣", badini: "ب راستی خودێ یێ لێبوریندار و دۆلوڤانە." },
-            { arabic: "وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ", ref: "الأنبياء: ٣٠", badini: "و مە هەر تشتەکێ زیندی ژ ئاڤێ دروستکریە." },
-            { arabic: "فَاصْفَحِ الصَّفْحَ الْجَمِيلَ", ref: "الحجر: ٨٥", badini: "ڤیجا ببورە ب لێبورینەکا جوان (بێ عاجزبون)." },
-            { arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ", ref: "البقرة: ٤٣", badini: "و نڤێژێ راکەن (بکەن) و زەکاتێ بدەن." },
-            { arabic: "وَتَوَكَّلْ عَلَى الْحَيِّ الَّذِي لَا يَمُوتُ", ref: "الفرقان: ٥٨", badini: "و پشت بەستنێ (تەوەکولێ) بێخە سەر وی یێ زیندی، ئەوێ چ جاران نمریت." },
-            { arabic: "إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ", ref: "التوبة: ١٢٠", badini: "ب راستی خودێ خێرا چاکەکاران بەرزە ناکەت." },
-            { arabic: "لَا تُكَلَّفُ نَفْسٌ إِلَّا وُسْعَهَا", ref: "البقرة: ٢٣٣", badini: "چ نه‌فس و مرۆڤ ناهێنە پەرپۆتکرن (ئەرکدارکرن) مەگەر ب قەدەر شیانا وێ بیت." },
-            { arabic: "إِنَّ أَكْرَمَكُمْ عِنْدَ اللَّهِ أَتْقَاكُمْ", ref: "الحجرات: ١٣", badini: "ب راستی رێزدارترینێ هەوە ل دەڤ خودێ، خودێ ترس‌ترینێ هەوەیە." }
-        ];
-
-        function renderAyat() {
-            let container = document.getElementById('ayatContainer');
-            container.innerHTML = '';
-            ayatList.forEach((item, index) => {
-                container.innerHTML += `
-                    <div class="glass-card p-3.5 rounded-2xl space-y-1.5 border-r-4 border-kask">
-                        <div class="flex justify-between items-center">
-                            <span class="text-[10px] text-kask font-bold">ئایەتا (${index + 1})</span>
-                            <span class="text-[9px] opacity-60 bg-white/5 px-2 py-0.5 rounded-full">${item.ref}</span>
-                        </div>
-                        <p class="font-bold text-xs tracking-wide leading-relaxed text-right font-serif" dir="rtl">${item.arabic}</p>
-                        <p class="text-[11px] opacity-90 border-t border-white/5 pt-1.5"><strong>رامان:</strong> ${item.badini}</p>
-                    </div>
-                `;
-            });
-        }
-        renderAyat();
-
-        // Azkar Data Complete
-        const azkarData = {
-            m: [
-                "<strong>1. ئایەت کورسی:</strong> (اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...) [١ جار]<br><span class='opacity-75 text-[10px]'>رامان: خودێ یێ ب تنێ یە... بۆ پاراستنا ژ جن و شەیتانان تا ئێڤاری.</span>",
-                "<strong>2. سورەتێن (الإخلاص، الفلق، الناس):</strong> [٣ جاران]<br><span class='opacity-75 text-[10px]'>رامان: پەنابرن ب خودێ ژ شەرێ هەمی مەخلوقان، حەسودیێ، و وەسوەسێن شەیتانی.</span>",
-                "<strong>3. (أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ...):</strong> [١ جار]<br><span class='opacity-75 text-[10px]'>رامان: مە سپێدە کر و مولک هەمی بۆ خودێ یە، و حەمد و سەنا بۆ وی بن.</span>",
-                "<strong>4. (بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ...):</strong> [٣ جاران]<br><span class='opacity-75 text-[10px]'>رامان: ب ناڤێ وی خودایێ کو ب ناڤێ وی چ تشت ل ئەرد و عەسمانی زیانێ ناگەهینن.</span>",
-                "<strong>5. (حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ...):</strong> [٧ جاران]<br><span class='opacity-75 text-[10px]'>رامان: خودێ بەسی منە، چ خودا ژبلی وی نینن، من پشت بەستن ب وی کریە.</span>",
-                "<strong>6. (سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ...):</strong> [٣ جاران]<br><span class='opacity-75 text-[10px]'>رامان: پاکی و حەمد بۆ خودێ بن ب قەدەر ژمارا مەخلوقێن وی و رازیبوونا وی.</span>"
-            ],
-            n: [
-                "<strong>1. سەلواتدان ل سەر پێغەمبەری:</strong> (اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ) [١٠ جاران یان پتر]<br><span class='opacity-75 text-[10px]'>رامان: خودایێ من، تو رەحمەت و سلامەتیێ ببارینی ل سەر پێغەمبەرێ مە محمد.</span>",
-                "<strong>2. (لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ...):</strong> [١٠ یا ١٠٠ جاران]<br><span class='opacity-75 text-[10px]'>رامان: چ خودا نینن ژبلی خودێ، یێ ب تنێ یە و چ شەریک بۆ نینن.</span>",
-                "<strong>3. ئستغفار:</strong> (أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ) [١٠٠ جاران]<br><span class='opacity-75 text-[10px]'>رامان: ئەز داخوازا لێبورینێ ژ خودێ دکەم و بەرەو وی ڤە دزێڕیم (تۆبە دکەم).</span>"
-            ],
-            e: [
-                "<strong>1. ئایەت کورسی و سورەتێن (الإخلاص، الفلق، الناس):</strong> [١ جار کورسی، ٣ جاران سورەت]<br><span class='opacity-75 text-[10px]'>رامان: بۆ پاراستنا کۆتاییا رۆژێ و پێشوازیکرنا شەڤێ.</span>",
-                "<strong>2. (أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ...):</strong> [١ جار]<br><span class='opacity-75 text-[10px]'>رامان: مە ئێڤاری کر و مولک هەمی بۆ خودێ یە، و سوپاسی بۆ وی بن.</span>",
-                "<strong>3. (اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا...):</strong> [١ جار]<br><span class='opacity-75 text-[10px]'>رامان: خودایێ من، مە ب تە ئێڤاری کر، و ب تە مە سپێدە کر.</span>",
-                "<strong>4. (أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ):</strong> [٣ جاران]<br><span class='opacity-75 text-[10px]'>رامان: ئەز پەنایێ دبەم ب پەیڤێن خودێ یێن تەمام ژ شەرێ هەر تشتەکێ وی بەدیهێنای.</span>"
-            ],
-            mg: [
-                "<strong>1. (اللَّهُمَّ أَجِرْنِي مِنَ النَّارِ):</strong> [٧ جاران]<br><span class='opacity-75 text-[10px]'>رامان: خودایێ من، تو من ژ ئاگرێ جەهنەمێ بپارێزی.</span>",
-                "<strong>2. (لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ...):</strong> [١٠ جاران]<br><span class='opacity-75 text-[10px]'>رامان: پشتی نڤێژا مەغریبێ پێش کو مرۆڤ پێیێن خۆ بلەڤینیت.</span>",
-                "<strong>3. تەسبیحاتێن پشتی نڤێژێ:</strong> (سبحان الله ٣٣، الحمد لله ٣٣، الله أكبر ٣٣)<br><span class='opacity-75 text-[10px]'>رامان: پاکی بۆ خودێ، سوپاسی بۆ خودێ، خودێ ژ هەمی تشتی مەزنترە.</span>"
-            ],
-            ni: [
-                "<strong>1. خۆندنا دوو ئایەتێن دوماهییێ ژ سورەتا البقرة:</strong> (آمن الرسول...) [١ جار]<br><span class='opacity-75 text-[10px]'>رامان: هەر کەسێ شەڤێ بخوینیت، دێ بەسی وی بن ژ هەر خرابتر و نەخۆشیەکێ.</span>",
-                "<strong>2. (بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي...):</strong> [١ جار]<br><span class='opacity-75 text-[10px]'>رامان: خودایێ من، ب ناڤێ تە من تەنیشتا خۆ دانا (راکشام).</span>",
-                "<strong>3. (اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ):</strong> [٣ جاران]<br><span class='opacity-75 text-[10px]'>رامان: خودایێ من، تو من ژ عەزاب و سزایێ خۆ بپارێزی ل ڕۆژا قیامەتێ.</span>",
-                "<strong>4. تەسبیحێن پێش نڤستنێ:</strong> (سبحان الله ٣٣، الحمد لله ٣٣، الله أكبر ٣٤)"
-            ]
-        };
-
-        function renderAzkar(type) {
-            document.querySelectorAll('.azkar-nav-btn').forEach(el => {
-                el.classList.remove('bg-blue-600', 'text-white');
-                el.classList.add('opacity-75');
-            });
-            let activeBtn = document.getElementById('azkarBtn_' + type);
-            activeBtn.classList.add('bg-blue-600', 'text-white');
-            activeBtn.classList.remove('opacity-75');
-
-            let box = document.getElementById('azkar_content_box');
-            box.innerHTML = '';
-            azkarData[type].forEach(item => {
-                box.innerHTML += `<div class="glass-card p-3 rounded-xl leading-relaxed">${item}</div>`;
-            });
-        }
-        renderAzkar('m');
-
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(el => {
-                el.classList.remove('bg-amber-500', 'bg-blue-600', 'bg-emerald-600', 'bg-pink-500', 'bg-purple-600', 'text-slate-950', 'text-white', 'shadow-md');
-                el.classList.add('opacity-70');
-            });
-            
-            let targetTab = document.getElementById('tab' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
-            targetTab.classList.remove('hidden');
-            
-            let btn = document.getElementById('btn' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
-            btn.classList.remove('opacity-70');
-            btn.classList.add('shadow-md');
-            
-            if(tabName === 'quotes') btn.classList.add('bg-amber-500', 'text-slate-950');
-            else if(tabName === 'azkar') btn.classList.add('bg-blue-600', 'text-white');
-            else if(tabName === 'ayat') btn.classList.add('bg-emerald-600', 'text-white');
-            else if(tabName === 'routine') btn.classList.add('bg-pink-500', 'text-slate-950');
-            else if(tabName === 'dodo') btn.classList.add('bg-purple-600', 'text-white');
-        }
-
-        document.getElementById('newQuoteBtn').addEventListener('click', () => {
-            currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            document.getElementById('quoteText').innerText = `"${currentQuote}"`;
-        });
-
-        document.getElementById('saveFavBtn').addEventListener('click', () => {
-            if (!favorites.includes(currentQuote)) {
-                favorites.push(currentQuote);
-                localStorage.setItem('dodocare_favs', JSON.stringify(favorites));
-                updateFavUI();
-                alert('گۆتن چوو د دڵخوازێن تە دا! ⭐');
-            }
-        });
-
-        function updateFavUI() {
-            document.getElementById('favCount').innerText = favorites.length;
-            document.getElementById('favListCount').innerText = favorites.length;
-        }
-        updateFavUI();
-
-        function openFavoritesModal() {
-            let list = document.getElementById('favModalList');
-            list.innerHTML = favorites.length === 0 ? '<p class="text-center opacity-60">چ گۆتن نینن.</p>' : '';
-            favorites.forEach((q, i) => {
-                list.innerHTML += `<div class="glass-card p-2.5 rounded-xl flex justify-between items-center"><span>"${q}"</span><button type="button" onclick="favorites.splice(${i},1);localStorage.setItem('dodocare_favs',JSON.stringify(favorites));openFavoritesModal();updateFavUI();" class="text-red-400 cursor-pointer"><i class="fa-solid fa-trash"></i></button></div>`;
-            });
-            document.getElementById('favModal').classList.remove('hidden');
-        }
-        function closeFavoritesModal() { document.getElementById('favModal').classList.add('hidden'); }
-
-        window.setRoutineTheme = function(theme) {
-            let container = document.getElementById('routineCardContainer');
-            let btnPivazi = document.getElementById('themeBtn_pivazi');
-            let btnKhamar = document.getElementById('themeBtn_khamar');
-            let btnKask = document.getElementById('themeBtn_kask');
-            let btnSor = document.getElementById('themeBtn_sor');
-
-            [btnPivazi, btnKhamar, btnKask, btnSor].forEach(b => {
-                b.className = "p-2 rounded-xl text-[10px] font-bold border-2 border-transparent glass-card opacity-75 hover:opacity-100 flex items-center justify-center gap-1 cursor-pointer transition";
-            });
-
-            if(theme === 'pivazi') {
-                container.className = "rounded-3xl p-5 shadow-2xl space-y-4 max-h-[75vh] overflow-y-auto border-t-4 border-pink-300 bg-pink-300/5 transition-all duration-300";
-                btnPivazi.className = "p-2 rounded-xl text-[10px] font-bold border-2 border-pink-300 bg-pink-300/20 text-pink-300 flex items-center justify-center gap-1 cursor-pointer transition";
-            } else if(theme === 'khamar') {
-                container.className = "rounded-3xl p-5 shadow-2xl space-y-4 max-h-[75vh] overflow-y-auto border-t-4 border-purple-600 bg-purple-600/5 transition-all duration-300";
-                btnKhamar.className = "p-2 rounded-xl text-[10px] font-bold border-2 border-purple-600 bg-purple-600/20 text-purple-300 flex items-center justify-center gap-1 cursor-pointer transition";
-            } else if(theme === 'kask') {
-                container.className = "rounded-3xl p-5 shadow-2xl space-y-4 max-h-[75vh] overflow-y-auto border-t-4 border-kask bg-kask/5 transition-all duration-300";
-                btnKask.className = "p-2 rounded-xl text-[10px] font-bold border-2 border-kask bg-kask/20 text-kask flex items-center justify-center gap-1 cursor-pointer transition";
-            } else if(theme === 'sor') {
-                container.className = "rounded-3xl p-5 shadow-2xl space-y-4 max-h-[75vh] overflow-y-auto border-t-4 border-red-500 bg-red-500/5 transition-all duration-300";
-                btnSor.className = "p-2 rounded-xl text-[10px] font-bold border-2 border-red-500 bg-red-500/20 text-red-400 flex items-center justify-center gap-1 cursor-pointer transition";
-            }
-            localStorage.setItem('dodocare_routine_theme', theme);
-        }
-
-        let savedTheme = localStorage.getItem('dodocare_routine_theme');
-        if(savedTheme) { setRoutineTheme(savedTheme); }
-
-        // LocalStorage for Routine inputs and checks
-        function loadPlanner() {
-            ['morning', 'noon', 'evening', 'night'].forEach(key => {
-                let savedText = localStorage.getItem('dodocare_plan_' + key);
-                if(savedText) document.getElementById('plan' + key.charAt(0).toUpperCase() + key.slice(1)).value = savedText;
-
-                let savedCheck = localStorage.getItem('dodocare_check_' + key);
-                let btn = document.getElementById('checkBtn_' + key);
-                if(savedCheck === 'true') {
-                    btn.classList.remove('opacity-70');
-                    btn.classList.add('bg-kask', 'text-white');
-                }
-            });
-        }
-        loadPlanner();
-
-        window.toggleCheck = function(key) {
-            let btn = document.getElementById('checkBtn_' + key);
-            if (btn.classList.contains('bg-kask')) {
-                btn.classList.remove('bg-kask', 'text-white');
-                btn.classList.add('opacity-70');
-                localStorage.setItem('dodocare_check_' + key, 'false');
-            } else {
-                btn.classList.remove('opacity-70');
-                btn.classList.add('bg-kask', 'text-white');
-                localStorage.setItem('dodocare_check_' + key, 'true');
-            }
-        }
-
-        window.saveMyPlanner = function() { 
-            ['morning', 'noon', 'evening', 'night'].forEach(key => {
-                let val = document.getElementById('plan' + key.charAt(0).toUpperCase() + key.slice(1)).value;
-                localStorage.setItem('dodocare_plan_' + key, val);
-            });
-            alert('خشتە و پلانێن ڕۆژانە هاتنە پاشەکەفتکرن! 📅'); 
-        }
-
-        window.answerDodo = function(isSuccess) {
-            let msgBox = document.getElementById('dodoMessage');
-            let actionBox = document.getElementById('dodoActionBox');
-            if (isSuccess) {
-                msgBox.innerText = "🎉 پـیـرۆزە! هەڤالێ من، تو گەلەک ب هێزی و ژیانا خۆ ب جوانترین شێوە برێڤە دبەی!";
-                actionBox.innerHTML = `<button type="button" onclick="resetDodo()" class="w-full bg-purple-600 text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer">دووبارە ڤەگەرە</button>`;
-            } else {
-                msgBox.innerText = "چ خەمان نەخۆ هەڤال، سوبە ڕۆژەكا نوو و پڕ دەرفەتە بۆ تە! ✨";
-                actionBox.innerHTML = `<button type="button" onclick="resetDodo()" class="w-full bg-purple-600 text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer">دووبارە ڤەگەرە</button>`;
-            }
-        }
-
-        window.resetDodo = function() {
-            document.getElementById('dodoMessage').innerText = `"سلاڤ هەڤال! تە روتینێ خو ب سەرکەفتینا بوراند؟"`;
-            document.getElementById('dodoActionBox').innerHTML = `
-                <button type="button" onclick="answerDodo(true)" class="flex-1 bg-kask hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer z-20">
-                    <i class="fa-solid fa-check"></i> بەلێ (✅)
-                </button>
-                <button type="button" onclick="answerDodo(false)" class="flex-1 glass-card hover:bg-purple-500/10 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer z-20">
-                    <i class="fa-solid fa-xmark"></i> نەخێر (🚫)
-                </button>
-            `;
-        }
-    </script>
 </body>
 </html>
